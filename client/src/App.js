@@ -3,13 +3,10 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "materialize-css/dist/css/materialize.min.css";
 import "./App.css";
 import Navbar from "./components/Navbar";
-import Sidenav from "./components/Sidenav";
-import Live from "./components/Live";
-import Lesson from "./components/Lesson";
-import Journal from "./components/Journal";
+import Student from "./pages/Student";
 import Home from "./pages/Home";
 import Teacher from "./pages/Teacher";
-import Discussion from "./components/Discussion";
+import Lessons from "./components/teacher/Lessons";
 
 class App extends Component {
   render() {
@@ -24,20 +21,11 @@ class App extends Component {
             <Teacher />
           </Route>
           <Route exact path="/student">
-            <Sidenav />
-            <Journal />
+            <Student />
           </Route>
-          <Route exact path="/lesson">
-            <Sidenav />
-            <Lesson />
-          </Route>
-          <Route exact path="/live">
-            <Sidenav />
-            <Live />
-          </Route>
-          <Route exact path="/discuss">
-            <Sidenav />
-            <Discussion />
+          <Route exact path="/teacher/lessons">
+            <Teacher />
+            <Lessons />
           </Route>
         </Switch>
       </Router>

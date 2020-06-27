@@ -5,8 +5,7 @@ html {
   overflow: hidden;
 }
 
-body,
-.brand-logo {
+body {
   font-family: "Muli", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol", "Noto Color Emoji";
@@ -56,7 +55,7 @@ nav {
 }
 
 .main {
-  padding: 20px 20px 20px 250px;
+  padding: 20px 20px 20px 270px;
 }
 
 @media only screen and (max-width: 992px) {
@@ -70,8 +69,17 @@ nav {
   margin-right: 14.5px;
 }
 
-.sidenav li a {
+.sidenav li a,
+.sidenav .collapsible-body li a {
   color: white;
+  padding: 0px;
+}
+
+.sidenav li {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  width: 100%;
+  align-items: center;
 }
 
 ul.sidenav-fixed {
@@ -80,15 +88,15 @@ ul.sidenav-fixed {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  width: 230px;
+  width: 250px;
 }
 
-.collapsible .collapsible-header {
+.sidenav .collapsible .collapsible-header {
   padding-left: 32px;
   width: 230px;
 }
 
-.collapsible .collapsible-body {
+.sidenav .collapsible .collapsible-body {
   padding-left: 32px;
   width: 230px;
   background-color: inherit;
