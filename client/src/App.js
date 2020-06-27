@@ -1,19 +1,46 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import "materialize-css/dist/css/materialize.min.css";
 import "./App.css";
+import Navbar from "./components/Navbar";
+import Sidenav from "./components/Sidenav";
+import Live from "./components/Live";
+import Lesson from "./components/Lesson";
+import Journal from "./components/Journal";
+import Home from "./pages/Home";
+import Teacher from "./pages/Teacher";
+import Discussion from "./components/Discussion";
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <Router>
+        <Navbar />
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route exact path="/teacher">
+            <Teacher />
+          </Route>
+          <Route exact path="/student">
+            <Sidenav />
+            <Journal />
+          </Route>
+          <Route exact path="/lesson">
+            <Sidenav />
+            <Lesson />
+          </Route>
+          <Route exact path="/live">
+            <Sidenav />
+            <Live />
+          </Route>
+          <Route exact path="/discuss">
+            <Sidenav />
+            <Discussion />
+          </Route>
+        </Switch>
+      </Router>
     );
   }
 }

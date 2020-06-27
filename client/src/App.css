@@ -1,24 +1,116 @@
-.App {
-  text-align: center;
+body,
+html {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+body,
+.brand-logo {
+  font-family: "Muli", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.brand-logo {
+  font-family: "Saira Extra Condensed", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-weight: 700;
+}
+
+h1,
+.brand-logo {
+  font-size: 6rem;
+  line-height: 5.5rem;
+}
+
+h2 {
+  font-size: 3.5rem;
+}
+
+h3 {
+  margin-top: auto;
+  margin-bottom: auto;
+  font-size: 2rem;
+}
+
+nav {
+  height: 70px;
+}
+
+.brand-logo {
+  display: inline-block;
+  height: 100%;
+}
+
+.brand-logo > img {
+  vertical-align: middle;
+  height: 90%;
+}
+
+.main {
+  padding: 20px 20px 20px 250px;
+}
+
+@media only screen and (max-width: 992px) {
+  .main {
+    padding-left: 20px;
+  }
+}
+
+.sidenav li a i.material-icons {
+  padding-left: 32px;
+  margin-right: 14.5px;
+}
+
+.sidenav li a {
   color: white;
 }
 
-.App-intro {
-  font-size: large;
+ul.sidenav-fixed {
+  margin-top: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 230px;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.collapsible .collapsible-header {
+  padding-left: 32px;
+  width: 230px;
+}
+
+.collapsible .collapsible-body {
+  padding-left: 32px;
+  width: 230px;
+  background-color: inherit;
+}
+
+.collapsible .collapsible-body .collection-item {
+  background-color: inherit;
+  margin: 0px;
+  border: 0px;
+}
+
+.home::after {
+  background: linear-gradient(to left, rgba(0, 0, 0, 0) 0%, black 100%),
+    url("./img/bg.jpg");
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: -1;
 }
