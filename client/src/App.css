@@ -3,7 +3,6 @@ html {
   margin: 0;
   padding: 0;
   height: 100vh;
-  overflow: hidden;
   font-family: "Merriweather", serif;
 }
 
@@ -24,12 +23,14 @@ i,
   background-color: rgba(0, 0, 0, 0);
 }
 
-.main {
+.student,
+.teacher {
   padding: 20px 20px 20px 270px;
 }
 
 @media only screen and (max-width: 992px) {
-  .main {
+  .student,
+  .teacher {
     padding-left: 20px;
   }
 }
@@ -56,7 +57,7 @@ i,
   z-index: -1;
 }
 
-.main::after {
+/* .main::after {
   background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
     url("./img/stu_bg.jpg");
   background-position: bottom;
@@ -69,4 +70,4 @@ i,
   right: 0;
   left: 0;
   z-index: -1;
-}
+} */

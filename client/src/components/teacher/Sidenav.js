@@ -6,42 +6,43 @@ export default function Sidenav() {
   useEffect(() => {
     M.AutoInit();
   });
+
   return (
-    <ul
+    <div
       id="slide-out"
-      className="sidenav sidenav-fixed grey darken-4 white-text"
+      className="valign-wrapper sidenav sidenav-fixed"
+      style={{
+        width: "250px",
+        marginTop: 60,
+        backgroundColor: "rgba(0, 0, 0, 1)",
+      }}
     >
-      <li>
-        <h3>
-          <Link to="/teacher/lessons">
-            <i className="material-icons">import_contacts</i>
-            Manage lessons
-          </Link>
-        </h3>
-      </li>
-      <li>
-        <h3>
-          <Link to="/teacher/students">
-            <i className="material-icons">account_box</i>
-            Manage students
-          </Link>
-        </h3>
-      </li>
-      <li>
-        <h3>
-          <Link to="/techer/live">
-            <i className="material-icons">live_tv</i>
-            Live
-          </Link>
-        </h3>
-      </li>
-      <li>
-        <h3>
-          <Link to="/techer/discuss">
-            <i className="material-icons">chat</i>Discussions
-          </Link>
-        </h3>
-      </li>
-    </ul>
+      <ul>
+        <li>
+          <h6>
+            <Link to="/teacher/lessons">
+              <i className="material-icons">import_contacts</i>
+              Manage lessons
+            </Link>
+          </h6>
+        </li>
+        <li>
+          <h6>
+            <Link to="/teacher/students">
+              <i className="material-icons">account_box</i>
+              Manage students
+            </Link>
+          </h6>
+        </li>
+        <li>
+          <h6>
+            <Link to="/techer/live">
+              <i className="material-icons">live_tv</i>
+              Live class
+            </Link>
+          </h6>
+        </li>
+      </ul>
+    </div>
   );
 }

@@ -17,4 +17,8 @@ export default {
   saveLesson: function (lessonData) {
     return axios.post("/api/lessons", lessonData);
   },
+  // update a lesson in the database
+  updateLesson: function (lessonData, id) {
+    return axios.put("/api/lessons/" + id, lessonData);
+  },
 };

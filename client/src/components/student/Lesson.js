@@ -1,33 +1,49 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import API from "../../utils/API";
 import M from "materialize-css";
 
 export default function Lesson() {
+  const [lesson, setLesson] = useState({});
+
+  const { id } = useParams();
   useEffect(() => {
     M.AutoInit();
-  });
+    API.getLesson(id)
+      .then((res) => setLesson(res.data))
+      .catch((err) => console.log(err));
+  }, [lesson]);
+
   return (
-    <div className="row main">
+    <div className="row student">
+      <h1 className="center"> {lesson.title}</h1>
       <div className="col s12">
         <ul className="tabs">
           <li className="tab col s4">
-            <a href="#test1">Video</a>
+            <a href="#notes" className="black-text">
+              Notes
+            </a>
           </li>
           <li className="tab col s4">
-            <a href="#test2">Resources</a>
+            <a href="#video" className="black-text">
+              Video
+            </a>
           </li>
           <li className="tab col s4 ">
-            <a href="#test3">Tasks</a>
+            <a href="#resources" className="black-text">
+              resources
+            </a>
           </li>
         </ul>
       </div>
-      <div id="test1" className="col s12">
-        Test 1
+      <div id="notes" className="col s12">
+        {lesson.notes}
       </div>
-      <div id="test2" className="col s12">
-        Test 2
+      <div id="video" className="col s12">
+        {lesson.video}
       </div>
-      <div id="test3" className="col s12">
-        Test 3
+      <div id="resources" className="col s12">
+        {lesson.resources}
       </div>
     </div>
   );
