@@ -1,12 +1,10 @@
 import React from "react";
-import logo from "../img/logo.png";
 
 export default function Navbar() {
   return (
-    <nav>
-      <div className=" nav-wrapper grey darken-4">
-        <a href="/" className="brand-logo">
-          <img src={logo} alt="Logo" />
+    <nav className="transparent" style={{ zIndex: 1000 }}>
+      <div className=" nav-wrapper">
+        <a href="/" className="brand-logo black-text">
           My Class
         </a>
         <a href="/" data-target="slide-out" className="sidenav-trigger">
