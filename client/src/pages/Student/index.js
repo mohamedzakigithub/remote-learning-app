@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import API from "../utils/API";
+import API from "../../utils/API";
 
 export default function Student() {
   const [lessons, setLessons] = useState([]);
@@ -16,7 +16,7 @@ export default function Student() {
   }
 
   return (
-    <div className="row student">
+    <div className="row main">
       <div className="col s12 m6 ">
         <ul className="collection with-header">
           <li className="collection-header">
