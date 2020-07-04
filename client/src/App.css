@@ -32,8 +32,8 @@ html {
   top: 10%;
 }
 
-/* .home::after {
-  background: url("./img/bg.jpg");
+.main::after {
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url("./img/stu_bg.jpg");
   background-position: bottom;
   background-repeat: no-repeat;
   background-size: cover;
@@ -44,19 +44,4 @@ html {
   right: 0;
   left: 0;
   z-index: -1;
-} */
-
-/* .main::after {
-  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
-    url("./img/stu_bg.jpg");
-  background-position: bottom;
-  background-repeat: no-repeat;
-  background-size: cover;
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  z-index: -1;
-} */
+}

@@ -1,14 +1,14 @@
 import React from "react";
+import Navbar from "./components/Navbar";
+import "./styles.css";
 
 export default function Home() {
   return (
     <div className="home">
+      <Navbar />
       <div className="container white-text">
         <div class="vertical"></div>
-        <div
-          className="row"
-          style={{ margin: "50vh auto", transform: "translateY(-50%)" }}
-        >
+        <div className="row" style={{ margin: "50vh auto", transform: "translateY(-50%)" }}>
           <div className="col s12 m6">
             <div
               className="card "
