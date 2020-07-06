@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import API from "../../../utils/API";
 
 export default function EditLessonForm(props) {
@@ -17,7 +17,11 @@ export default function EditLessonForm(props) {
           title: formObject.title,
           notes: formObject.notes,
           video: formObject.video,
-          resources: [formObject.resource1, formObject.resource2, formObject.resource3],
+          resources: [
+            formObject.resource1,
+            formObject.resource2,
+            formObject.resource3,
+          ],
         },
         props.lesson._id
       )
@@ -32,7 +36,12 @@ export default function EditLessonForm(props) {
     <form className="new-lesson">
       <div className="row">
         <div className="input-field col s12 m8 inline">
-          <input name="title" type="text" onChange={handleInputChange} defaultValue={props.lesson.title} />
+          <input
+            name="title"
+            type="text"
+            onChange={handleInputChange}
+            defaultValue={props.lesson.title}
+          />
           <label className="active" htmlFor="title">
             Title
           </label>
@@ -51,34 +60,54 @@ export default function EditLessonForm(props) {
           </label>
         </div>
         <div className="input-field col s12 m8 inline">
-          <input name="video" id="video" type="text" onChange={handleInputChange} defaultValue={props.lesson.video} />
+          <input
+            name="video"
+            id="video"
+            type="text"
+            onChange={handleInputChange}
+            defaultValue={props.lesson.video}
+          />
           <label className="active" htmlFor="video">
             Video
           </label>
         </div>
         <div className="input-field col s12 m8 inline">
-          <input name="resource1" type="text" onChange={handleInputChange} defaultValue={props.lesson.resources[0]} />
+          <input
+            name="resource1"
+            type="text"
+            onChange={handleInputChange}
+            defaultValue={props.lesson.resources[0]}
+          />
           <label className="active" htmlFor="resource1">
             Resource 1
           </label>
         </div>
         <div className="input-field col s12 m8 inline">
-          <input name="resource2" type="text" onChange={handleInputChange} defaultValue={props.lesson.resources[1]} />
+          <input
+            name="resource2"
+            type="text"
+            onChange={handleInputChange}
+            defaultValue={props.lesson.resources[1]}
+          />
           <label className="active" htmlFor="resource2">
             Resource 2
           </label>
         </div>
         <div className="input-field col s12 m8 inline">
-          <input name="resource3" type="text" onChange={handleInputChange} defaultValue={props.lesson.resources[2]} />
+          <input
+            name="resource3"
+            type="text"
+            onChange={handleInputChange}
+            defaultValue={props.lesson.resources[2]}
+          />
           <label className="active" htmlFor="resource3">
             Resource 3
           </label>
         </div>
         <div className="input-field col s12 right-align">
-          <a className="btn-save btn blue" onClick={handleFormSubmit}>
+          <a href="/" className="btn-save btn blue" onClick={handleFormSubmit}>
             Save
           </a>
-          <a className="btn-clear btn red">Clear</a>
         </div>
       </div>
     </form>

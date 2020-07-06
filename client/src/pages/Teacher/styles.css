@@ -1,16 +1,35 @@
-.card .card-image img {
+.dashboard .card .card-image img {
   display: block;
   margin: auto;
 }
 
-.card {
+.dashboard .card {
   border: 5px solid black;
 }
 
-.card .card-image {
+.dashboard .card .card-image {
   text-align: center;
 }
 
-.card .card-action {
+.dashboard .card .card-action {
   text-align: center;
+}
+
+/* students */
+
+.students .card .card-image img {
+  display: block;
+  margin: auto;
+}
+
+.students .card {
+  background-color: yellowgreen;
+}
+
+.students .card .card-image {
+  text-align: center;
+}
+
+.students .card .card-action {
+  height: 50px;
 }

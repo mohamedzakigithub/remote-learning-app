@@ -1,59 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "./components/Navbar";
+import StudentLoginForm from "./components/StudentLoginForm";
+import TeacherRegisterForm from "./components/TeacherRegisterForm";
 import "./styles.css";
+import TeacherLoginForm from "./components/TeacherLoginForm";
 
-export default function Home() {
+export default function Home({ setAuthenticated }) {
+  const [view, setView] = useState("login");
+
   return (
     <div className="home">
       <Navbar />
       <div className="container white-text">
-        <div class="vertical"></div>
-        <div className="row" style={{ margin: "50vh auto", transform: "translateY(-50%)" }}>
+        <div className="vertical"></div>
+        <div
+          className="row"
+          style={{ margin: "50vh auto", transform: "translateY(-50%)" }}
+        >
           <div className="col s12 m6">
-            <div
-              className="card "
-              style={{
-                backgroundColor: "rgba(0,0,0,0.5)",
-              }}
-            >
-              <div className="card-content">
-                <p>Students portal</p>
-                <div className="input-field">
-                  <input id="token" type="text" className="validate" />
-                  <label htmlFor="token">Token</label>
-                </div>
-                <div class="input-field">
-                  <button class="btn waves-effect  " type="submit">
-                    Login
-                  </button>
-                </div>
-              </div>
-            </div>
+            <StudentLoginForm />
           </div>
           <div className="col s12 m6">
-            <div
-              className="card "
-              style={{
-                backgroundColor: "rgba(0,0,0,0.5)",
-              }}
-            >
-              <div className="card-content">
-                <p>Teacher dashboard</p>
-                <div className="input-field">
-                  <input id="email" type="email" className="validate" />
-                  <label htmlFor="email">Email</label>
-                </div>
-                <div className="input-field">
-                  <input id="password" type="password" className="validate" />
-                  <label htmlFor="password">Password</label>
-                </div>
-                <div class="input-field">
-                  <button class="btn waves-effect " type="submit">
-                    Login
-                  </button>
-                </div>
-              </div>
-            </div>
+            {view === "login" ? (
+              <TeacherLoginForm
+                setView={setView}
+                setAuthenticated={setAuthenticated}
+              />
+            ) : (
+              <TeacherRegisterForm setView={setView} />
+            )}
           </div>
         </div>
       </div>

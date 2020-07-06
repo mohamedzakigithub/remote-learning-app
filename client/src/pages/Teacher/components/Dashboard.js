@@ -6,13 +6,13 @@ import live_class from "../../../img/live_class.png";
 
 export default function Dashboard({ setView }) {
   return (
-    <>
+    <div className="dashboard">
       <h3 className="center">Teacher dashboard</h3>
       <div className="row">
         <div className="col s12 m4">
           <div className="card hoverable">
             <div className="card-image ">
-              <img src={lessons} className="responsive-img" />
+              <img src={lessons} className="responsive-img" alt="lessons" />
             </div>
             <div className="card-action">
               <Link
@@ -31,7 +31,7 @@ export default function Dashboard({ setView }) {
         <div className="col s12 m4">
           <div className="card hoverable">
             <div className="card-image">
-              <img src={students} />
+              <img src={students} className="responsive-img" alt="students" />
             </div>
             <div className="card-action">
               <Link
@@ -50,7 +50,7 @@ export default function Dashboard({ setView }) {
         <div className="col s12 m4">
           <div className="card hoverable">
             <div className="card-image">
-              <img src={live_class} />
+              <img src={live_class} className="responsive-img" alt="live" />
             </div>
             <div className="card-action">
               <Link
@@ -67,6 +67,6 @@ export default function Dashboard({ setView }) {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }

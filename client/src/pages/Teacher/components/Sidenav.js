@@ -23,7 +23,7 @@ export default function Sidenav({ setView }) {
     <div id="slide-out" className="sidenav sidenav-fixed" style={style.sidenav}>
       <div className="user-view">
         <a href="#user">
-          <img className="circle" src={picture} />
+          <img className="circle" src={picture} alt="profile" />
         </a>
         <a href="#name">
           <span className="white-text name">John Doe</span>

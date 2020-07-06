@@ -16,7 +16,11 @@ export default function NewLessonForm() {
         title: formObject.title,
         notes: formObject.notes,
         video: formObject.video,
-        resources: [formObject.resource1, formObject.resource2, formObject.resource3],
+        resources: [
+          formObject.resource1,
+          formObject.resource2,
+          formObject.resource3,
+        ],
       })
         .then((res) => {
           console.log("saved");
@@ -60,10 +64,9 @@ export default function NewLessonForm() {
           <label htmlFor="resource3">Resource 3</label>
         </div>
         <div className="input-field col s12 right-align">
-          <a className="btn-save btn blue" onClick={handleFormSubmit}>
+          <a href="/" className="btn-save btn blue" onClick={handleFormSubmit}>
             Save
           </a>
-          <a className="btn-clear btn red">Clear</a>
         </div>
       </div>
     </form>

@@ -10,6 +10,11 @@ html {
   padding: 0px 0px 0px 270px;
 }
 
+.home {
+  height: 100vh;
+  overflow: hidden;
+}
+
 .collapsible-header i {
   padding-right: 34px;
 }
@@ -33,7 +38,8 @@ html {
 }
 
 .main::after {
-  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url("./img/stu_bg.jpg");
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
+    url("./img/stu_bg.jpg");
   background-position: bottom;
   background-repeat: no-repeat;
   background-size: cover;
