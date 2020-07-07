@@ -22,8 +22,8 @@ html {
 }
 
 .vertical {
-  border-left: 3px solid gray;
-  height: 80%;
+  border-left: 3px solid black;
+  height: 90%;
   position: absolute;
   left: 50%;
   top: 10%;

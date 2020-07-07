@@ -11,7 +11,7 @@ export default function Home({ setAuthenticated }) {
   return (
     <div className="home">
       <Navbar />
-      <div className="container white-text">
+      <div className="container">
         <div className="vertical"></div>
         <div
           className="row"

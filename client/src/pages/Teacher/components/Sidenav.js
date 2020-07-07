@@ -1,9 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import M from "materialize-css";
 import picture from "../../../img/user-placeholder.png";
+import { UserContext } from "../../../utils/UserContext";
 
 export default function Sidenav({ setView }) {
+  const [userState] = useContext(UserContext);
   useEffect(() => {
     M.AutoInit();
   });
@@ -22,15 +24,13 @@ export default function Sidenav({ setView }) {
   return (
     <div id="slide-out" className="sidenav sidenav-fixed" style={style.sidenav}>
       <div className="user-view">
-        <a href="#user">
-          <img className="circle" src={picture} alt="profile" />
-        </a>
-        <a href="#name">
-          <span className="white-text name">John Doe</span>
-        </a>
-        <a href="#email">
-          <span className="white-text email">jdandturk@gmail.com</span>
-        </a>
+        <img
+          className="circle"
+          src={userState.picture || picture}
+          alt="profile"
+        />
+        <p>{userState.name}</p>
+        <p>{userState.email}</p>
       </div>
       <ul>
         <li></li>

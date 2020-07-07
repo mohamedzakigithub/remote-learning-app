@@ -11,3 +11,7 @@
   left: 0;
   z-index: -1;
 }
+
+.transparent {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+}

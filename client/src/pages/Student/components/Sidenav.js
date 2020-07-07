@@ -1,20 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import API from "../../../utils/API";
 import picture from "../../../img/user-placeholder.png";
+import userBG from "../../../img/userBG.jpg";
 import M from "materialize-css";
+import { UserContext } from "../../../utils/UserContext";
 
 export default function Sidenav({ setView, showLesson }) {
   const [lessons, setLessons] = useState([]);
+  const [userState] = useContext(UserContext);
 
   const style = {
     sidenav: {
       width: "270px",
-      backgroundColor: "#484d5c",
-      color: "3ffce00",
+      backgroundColor: "#c0bebf",
+      color: "black",
     },
     li: { marginTop: 35, marginBottom: 35 },
-    link: { color: "#ffce00", padding: 10, backgroundColor: "#484d5c" },
+    link: { color: "black", padding: 10, backgroundColor: "#c0bebf" },
     i: { paddingRight: 10, margin: 0 },
   };
 
@@ -34,16 +37,15 @@ export default function Sidenav({ setView, showLesson }) {
       className=" sidenav sidenav-fixed"
       style={style.sidenav}
     >
-      <div className="user-view">
-        <a href="#user">
-          <img className="circle" src={picture} alt="profile" />
-        </a>
-        <a href="#name">
-          <span className="white-text name">John Doe</span>
-        </a>
-        <a href="#email">
-          <span className="white-text email">jdandturk@gmail.com</span>
-        </a>
+      <div style={{ backgroundImage: `url(${userBG})`, textAlign: "center" }}>
+        <img
+          className="circle "
+          style={{ margin: "0 auto", size: 80, display: "block" }}
+          src={userState.picture || picture}
+          alt="profile"
+        />
+        <i className="white-text center">{userState.name}</i>
+        <br />
       </div>
       <ul>
         <li>
