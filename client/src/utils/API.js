@@ -28,11 +28,9 @@ export default {
   },
 
   // Registration
-  teacherRegister: function (userData) {
+  register: function (userData) {
     return axios.post("/api/users/register", userData);
   },
-
-  // Students
 
   // Gets all users
   getStudents: function () {
@@ -43,7 +41,7 @@ export default {
     return axios.get("/api/users/" + id);
   },
 
-  // Gets the user with the given id
+  // Deletes the user with the given id
   deleteStudent: function (id) {
     return axios.delete("/api/users/" + id);
   },

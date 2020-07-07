@@ -1,10 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import API from "../../utils/API";
+import API from "../../../utils/API";
+import picture from "../../../img/user-placeholder.png";
 import M from "materialize-css";
 
-export default function Sidenav() {
+export default function Sidenav({ setView, showLesson }) {
   const [lessons, setLessons] = useState([]);
+
+  const style = {
+    sidenav: {
+      width: "270px",
+      backgroundColor: "#484d5c",
+      color: "3ffce00",
+    },
+    li: { marginTop: 35, marginBottom: 35 },
+    link: { color: "#ffce00", padding: 10, backgroundColor: "#484d5c" },
+    i: { paddingRight: 10, margin: 0 },
+  };
 
   useEffect(() => {
     loadLessons();
@@ -19,28 +31,46 @@ export default function Sidenav() {
   return (
     <div
       id="slide-out"
-      className="valign-wrapper sidenav sidenav-fixed"
-      style={{
-        width: "250px",
-        marginTop: 60,
-        backgroundColor: "rgba(0, 0, 0, 1)",
-      }}
+      className=" sidenav sidenav-fixed"
+      style={style.sidenav}
     >
+      <div className="user-view">
+        <a href="#user">
+          <img className="circle" src={picture} alt="profile" />
+        </a>
+        <a href="#name">
+          <span className="white-text name">John Doe</span>
+        </a>
+        <a href="#email">
+          <span className="white-text email">jdandturk@gmail.com</span>
+        </a>
+      </div>
       <ul>
         <li>
-          <ul className="collapsible black">
-            <li>
+          <ul className="collapsible">
+            <li style={style.li}>
               <h5>
-                <div className="collapsible-header black white-text" style={{ padding: 0 }}>
-                  <i className="material-icons">import_contacts</i>
+                <div className="collapsible-header" style={style.link}>
+                  <i className="material-icons" style={style.i}>
+                    import_contacts
+                  </i>
                   Lessons
                 </div>
               </h5>
-              <div className="collapsible-body black">
-                <ul className="collection black">
+              <div className="collapsible-body " style={style.link}>
+                <ul className="collection ">
                   {lessons.length ? (
                     lessons.map((lesson) => (
-                      <Link className="collection-item black white-text" to={"/lesson/" + lesson._id} key={lesson._id}>
+                      <Link
+                        className="collection-item"
+                        to="/"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          showLesson(lesson._id);
+                        }}
+                        key={lesson._id}
+                        style={style.link}
+                      >
                         {lesson.title}
                       </Link>
                     ))
@@ -52,18 +82,21 @@ export default function Sidenav() {
             </li>
           </ul>
         </li>
-        <li>
+        <li style={style.li}>
           <h5>
-            <Link to="/live" className="white-text">
-              <i className="material-icons ">live_tv</i>
-              Live
-            </Link>
-          </h5>
-        </li>
-        <li>
-          <h5>
-            <Link to="/discuss" className="white-text">
-              <i className="material-icons">chat</i>Discussions
+            <Link
+              className="collection-item"
+              to="/"
+              onClick={(e) => {
+                e.preventDefault();
+                setView("Liveclass");
+              }}
+              style={style.link}
+            >
+              <i className="material-icons" style={style.i}>
+                live_tv
+              </i>
+              Live class
             </Link>
           </h5>
         </li>

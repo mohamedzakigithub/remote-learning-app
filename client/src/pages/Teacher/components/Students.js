@@ -2,14 +2,66 @@ import React, { useState, useEffect } from "react";
 import API from "../../../utils/API";
 import M from "materialize-css";
 import picture from "../../../img/user-placeholder.png";
+import add from "../../../img/add.png";
+import AddStudentForm from "./AddStudentForm";
+// import seedUsers from "../../../utils/seedUsers";
+
+// Style
+
+const style = {
+  card: {
+    height: "auto",
+    width: 250,
+    backgroundColor: "white",
+    padding: 10,
+    borderRadius: 5,
+    border: "1px solid black",
+    margin: 10,
+    padding: 10,
+  },
+  img: {
+    display: "block",
+    margin: "auto",
+    height: 70,
+    width: 70,
+    borderRadius: "50%",
+  },
+  add: {
+    display: "block",
+    margin: "auto",
+    height: 150,
+    width: "auto",
+  },
+  center: {
+    textAlign: "center",
+    padding: 10,
+  },
+  text: {
+    fontSize: 12,
+    margin: "10px, 0px",
+  },
+};
 
 export default function Students() {
   const [students, setStudents] = useState([]);
+  const [hideList, setHideList] = useState("");
+  const [hideForm, setHideForm] = useState("hide");
 
   useEffect(() => {
+    // seedUsers();
     M.AutoInit();
     loadStudents();
-  }, []);
+  }, [hideList]);
+
+  function showForm() {
+    setHideForm("");
+    setHideList("hide");
+  }
+
+  function showList() {
+    setHideForm("hide");
+    setHideList("");
+  }
 
   function loadStudents() {
     API.getStudents()
@@ -26,45 +78,62 @@ export default function Students() {
   }
   return (
     <div className="students">
-      <h3 className="center">Manage Students</h3>
-      <div className="row">
+      <div className={`${hideForm}`}>
+        <h3 className="center">Add a student</h3>
+        <AddStudentForm showList={showList} />
+      </div>
+
+      <div className="row" className={`${hideList} `}>
+        <h3 className="center">Manage students</h3>
         <div
           className="col s12"
-          style={{ display: "flex", justifyContent: "space-evenly" }}
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "space-around",
+          }}
         >
-          <div className="card grey" style={{ height: 200, width: 200 }}>
-            Add student
+          <div style={style.card} className="hoverable">
+            <div>
+              <img src={add} style={style.add} alt="add" />
+            </div>
+            <div style={style.center}>
+              <button
+                onClick={showForm}
+                className="btn blue"
+                style={style.button}
+              >
+                Add student
+              </button>
+            </div>
           </div>
 
-          {students.length ? (
-            students.map((student) => (
-              <div className="card" style={{ height: 200, width: 200 }}>
-                <div className="card-image">
+          {students.length
+            ? students.map((student) => (
+                <div style={style.card} className="hoverable" key={student._id}>
                   <img
-                    className=" "
-                    src={picture}
-                    style={{ height: 70, width: 70, borderRadius: "50%" }}
+                    src={student.picture || picture}
+                    style={style.img}
+                    alt="profile"
                   />
+                  <div>
+                    <p style={style.text}>{student.name}</p>
+                    <p style={style.text}>{student.email}</p>
+                    <p style={style.text}>Token: {student.username}</p>
+                  </div>
+                  <div>
+                    <a href="/" onClick={(e) => e.preventDefault()}>
+                      <i
+                        className="material-icons right red-text"
+                        onClick={() => deleteStudent(student._id)}
+                      >
+                        delete
+                      </i>
+                    </a>
+                  </div>
                 </div>
-                <div className="card-content">
-                  <p>Name: {student.username}</p>
-                  <p>Email: {student.email}</p>
-                </div>
-                <div className="card-action">
-                  <button className="right">
-                    <i
-                      className="material-icons right red-text"
-                      onClick={deleteStudent}
-                    >
-                      delete
-                    </i>
-                  </button>
-                </div>
-              </div>
-            ))
-          ) : (
-            <h5 className="collection-item">No students found</h5>
-          )}
+              ))
+            : null}
         </div>
       </div>
     </div>

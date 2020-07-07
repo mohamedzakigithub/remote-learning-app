@@ -8,7 +8,11 @@ export default function Lessons() {
   const [lessons, setLessons] = useState([]);
 
   useEffect(() => {
-    M.AutoInit();
+    var elems = document.querySelectorAll(".collapsible");
+    var instances = M.Collapsible.init(elems);
+
+    console.log(instances);
+
     loadLessons();
   }, []);
 
@@ -30,31 +34,33 @@ export default function Lessons() {
         <div className="col s12 m8 offset-m2">
           <ul className="collapsible">
             <li>
-              <div className="collapsible-header grey">
+              <div className="collapsible-header white">
                 <h6>
                   <i className="material-icons">add</i>
                   Add a new lesson
                 </h6>
               </div>
-              <div className="collapsible-body">
+              <div className="collapsible-body white">
                 <NewLessonForm />
               </div>
             </li>
           </ul>
-          <ul className="collapsible">
+          <ul className="collapsible white">
             {lessons.length ? (
               lessons.map((lesson) => (
                 <li key={lesson._id}>
-                  <div className="collapsible-header grey" style={{ justifyContent: "space-between" }}>
+                  <div
+                    className="collapsible-header"
+                    style={{ justifyContent: "space-between" }}
+                  >
                     <div>
-                      <h6>{lesson.title}</h6>
+                      <p>{lesson.title}</p>
                     </div>
                     <h6>
                       <i className="material-icons">edit</i>
                       <i
                         className="material-icons red-text "
-                        onClick={(e) => {
-                          e.nativeEvent.stopImmediatePropagation();
+                        onClick={() => {
                           deleteLesson(lesson._id);
                         }}
                       >

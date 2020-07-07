@@ -14,17 +14,20 @@ export default function App() {
     <Router>
       <Switch>
         <Route exact path="/">
-          <Teacher />
-          {/* <Home setAuthenticated={setAuthenticated} /> */}
-        </Route>
-        <Route exact path="/student">
           <Student />
+          {/* <Home setAuthenticated={setAuthenticated} /> */}
         </Route>
         <ProtectedRoute
           authenticated={authenticated}
           exact
           path="/teacher"
           component={Teacher}
+        />
+        <ProtectedRoute
+          authenticated={authenticated}
+          exact
+          path="/student"
+          component={Student}
         />
         <Route path="*" component={() => "404 NOT FOUND"} />
       </Switch>

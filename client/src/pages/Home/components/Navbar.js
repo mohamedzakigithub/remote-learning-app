@@ -18,6 +18,9 @@ export default function Navbar() {
           <a href="/" className="brand-logo" style={style.logo}>
             My Class
           </a>
+          <a href="/" data-target="slide-out" className="sidenav-trigger">
+            <i className="material-icons">menu</i>
+          </a>
         </div>
       </nav>
     </div>

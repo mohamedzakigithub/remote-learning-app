@@ -20,32 +20,8 @@ const lessonSeed = [
   },
 ];
 
-const studentSeed = [
-  {
-    name: "Mohamed Zaki",
-    email: "mohamedzaki@hotmail.com",
-    token: "xyz",
-  },
-  {
-    name: "John smith",
-    email: "jsmith@email.com",
-    token: "abc",
-  },
-];
-
 db.Lesson.remove({})
   .then(() => db.Lesson.collection.insertMany(lessonSeed))
-  .then((data) => {
-    console.log(data.result.n + " records inserted!");
-    process.exit(0);
-  })
-  .catch((err) => {
-    console.error(err);
-    process.exit(1);
-  });
-
-db.Student.remove({})
-  .then(() => db.Student.collection.insertMany(studentSeed))
   .then((data) => {
     console.log(data.result.n + " records inserted!");
     process.exit(0);

@@ -18,7 +18,7 @@ export default function Home({ setAuthenticated }) {
           style={{ margin: "50vh auto", transform: "translateY(-50%)" }}
         >
           <div className="col s12 m6">
-            <StudentLoginForm />
+            <StudentLoginForm setAuthenticated={setAuthenticated} />
           </div>
           <div className="col s12 m6">
             {view === "login" ? (

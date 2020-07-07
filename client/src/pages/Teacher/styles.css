@@ -14,22 +14,3 @@
 .dashboard .card .card-action {
   text-align: center;
 }
-
-/* students */
-
-.students .card .card-image img {
-  display: block;
-  margin: auto;
-}
-
-.students .card {
-  background-color: yellowgreen;
-}
-
-.students .card .card-image {
-  text-align: center;
-}
-
-.students .card .card-action {
-  height: 50px;
-}
