@@ -3,6 +3,7 @@
   background-position: bottom;
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
   content: "";
   position: absolute;
   top: 0;
@@ -14,4 +15,8 @@
 
 .transparent {
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+}
+
+.home {
+  height: 100vh;
 }

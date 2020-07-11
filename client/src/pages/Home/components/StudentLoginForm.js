@@ -5,15 +5,8 @@ import { UserContext } from "../../../utils/UserContext";
 
 export default function StudentLoginForm({ setAuthenticated }) {
   const style = {
-    input: {
-      borderRadius: 20,
-      color: "black",
-      backgroundColor: "white",
-      height: 30,
-      paddingLeft: 5,
-    },
+    input: { color: "white" },
     button: {
-      borderRadius: 20,
       border: "0px solid black",
       color: "white",
       backgroundColor: "#0667d8",
@@ -34,13 +27,13 @@ export default function StudentLoginForm({ setAuthenticated }) {
       display: "inline-block",
       position: "absolute",
       bottom: 30,
-      right: 0,
+      right: "10%",
       padding: 10,
-      width: "100%",
+      width: "80%",
     },
   };
 
-  const [userState, setUserState] = useContext(UserContext);
+  const [, setUserState] = useContext(UserContext);
   const [formObject, setFormObject] = useState({});
   let history = useHistory();
 
@@ -51,7 +44,7 @@ export default function StudentLoginForm({ setAuthenticated }) {
 
   function handleFormSubmit(event) {
     event.preventDefault();
-    API.teacherLogin({
+    API.login({
       username: formObject.username,
       password: "xyz",
     })
@@ -77,15 +70,15 @@ export default function StudentLoginForm({ setAuthenticated }) {
           Students portal
         </h3>
         <div style={style.form}>
-          <div>
+          <div className="input-field">
             <input
-              style={style.input}
               id="token"
               type="text"
               name="username"
-              className="validate"
               onChange={handleInputChange}
+              style={style.input}
             />
+            <label htmlFor="token">Token</label>
           </div>
           <div>
             <button

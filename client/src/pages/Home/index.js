@@ -1,35 +1,60 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import StudentLoginForm from "./components/StudentLoginForm";
 import TeacherRegisterForm from "./components/TeacherRegisterForm";
 import "./styles.css";
 import TeacherLoginForm from "./components/TeacherLoginForm";
+import { UserContext } from "../../utils/UserContext";
+import { useHistory } from "react-router-dom";
+import API from "../../utils/API";
 
-export default function Home({ setAuthenticated }) {
+export default function Home() {
+  const [, setUserState] = useContext(UserContext);
+  let history = useHistory();
   const [view, setView] = useState("login");
+
+  const [userState] = useContext(UserContext);
+  useEffect(() => {
+    API.isLoggedIn()
+      .then((res) => {
+        setUserState({
+          authenticated: true,
+          name: res.data.name,
+          email: res.data.email,
+          picture: res.data.picture,
+          role: res.data.role,
+        });
+        if (res.data.role === "teacher") {
+          history.push("/teacher");
+        } else if (res.data.role === "student") {
+          history.push("/student");
+        }
+      })
+      .catch((err) => console.log(err));
+  });
 
   return (
     <div className="home">
       <Navbar />
-      <div className="container">
-        <div className="vertical"></div>
-        <div
-          className="row"
-          style={{ margin: "50vh auto", transform: "translateY(-50%)" }}
-        >
-          <div className="col s12 m6">
-            <StudentLoginForm setAuthenticated={setAuthenticated} />
-          </div>
-          <div className="col s12 m6">
-            {view === "login" ? (
-              <TeacherLoginForm
-                setView={setView}
-                setAuthenticated={setAuthenticated}
-              />
-            ) : (
-              <TeacherRegisterForm setView={setView} />
-            )}
-          </div>
+      <div className="vertical"></div>
+      <div
+        className="row"
+        style={{
+          display: "flex",
+          height: "80vh",
+          alignItems: "center",
+          flexWrap: "wrap",
+        }}
+      >
+        <div className="col s12 m6">
+          <StudentLoginForm />
+        </div>
+        <div className="col s12 m6">
+          {view === "login" ? (
+            <TeacherLoginForm setView={setView} />
+          ) : (
+            <TeacherRegisterForm setView={setView} />
+          )}
         </div>
       </div>
     </div>

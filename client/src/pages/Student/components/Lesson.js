@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
 import API from "../../../utils/API";
 import ReactPlayer from "react-player";
 import M from "materialize-css";
@@ -9,7 +8,7 @@ export default function Lesson({ lessonId }) {
 
   const style = {
     box: {
-      height: "50vh",
+      height: "70vh",
       border: "2px solid black",
       borderRadius: 5,
       padding: 20,
@@ -22,14 +21,14 @@ export default function Lesson({ lessonId }) {
     API.getLesson(lessonId)
       .then((res) => setLesson(res.data))
       .catch((err) => console.log(err));
-  }, [lesson]);
+  }, []);
 
   return (
     <div>
       <div className="row">
         <h5 className="center">{lesson.title}</h5>
         <br />
-        <div className="col s12 m8 offset-m2">
+        <div className="col s12 m10 offset-m1">
           <ul className="tabs">
             <li className="tab col s4">
               <a href="#notes" className="black-text">
@@ -51,9 +50,9 @@ export default function Lesson({ lessonId }) {
           <div id="notes" className="col s12" style={style.box}>
             {lesson.notes}
           </div>
-          <div id="video" className="col s12">
-            <div>
-              <ReactPlayer url={lesson.video} width="100%" />
+          <div id="video" className="col s12" style={style.box}>
+            <div style={{ height: "100%", width: "100%" }}>
+              <ReactPlayer url={lesson.video} width="100%" height="100%" />
             </div>
           </div>
           <div id="resources" className="col s12" style={style.box}>
@@ -61,8 +60,8 @@ export default function Lesson({ lessonId }) {
               {lesson.resources ? (
                 lesson.resources.map((resource) => (
                   <li>
-                    <a href={resource.url} target="_blank">
-                      {resource.title}
+                    <a href={resource} target="_blank">
+                      {resource}
                     </a>
                   </li>
                 ))

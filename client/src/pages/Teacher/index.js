@@ -1,19 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./styles.css";
-import Navbar from "./components/Navbar";
 import Sidenav from "./components/Sidenav";
 import Dashboard from "./components/Dashboard";
 import Lessons from "./components/Lessons";
 import Students from "./components/Students";
 import Liveclass from "./components/Liveclass";
+import M from "materialize-css";
 
 export default function Teacher() {
   const [view, setView] = useState("");
+  useEffect(() => {
+    M.AutoInit();
+  }, [view]);
 
   function renderSwitch(view) {
     switch (view) {
       case "Lessons":
-        return <Lessons />;
+        return <Lessons setView={setView} />;
       case "Students":
         return <Students />;
       case "Liveclass":
@@ -25,7 +28,13 @@ export default function Teacher() {
 
   return (
     <div className="main">
-      <Navbar />
+      <a
+        href="#"
+        data-target="slide-out"
+        className="sidenav-trigger hide-on-large-only"
+      >
+        <i className="material-icons black-text">menu</i>
+      </a>
       <Sidenav setView={setView} />
       {renderSwitch(view)}
     </div>

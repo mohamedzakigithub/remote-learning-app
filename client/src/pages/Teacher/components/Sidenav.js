@@ -2,38 +2,74 @@ import React, { useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import M from "materialize-css";
 import picture from "../../../img/user-placeholder.png";
+import userBG from "../../../img/userBG.jpg";
 import { UserContext } from "../../../utils/UserContext";
+import API from "../../../utils/API";
 
 export default function Sidenav({ setView }) {
-  const [userState] = useContext(UserContext);
+  const style = {
+    image: { margin: "0 auto", height: 80, display: "block" },
+    sidenav: {
+      width: "270px",
+      backgroundColor: "#c0bebf",
+      color: "black",
+    },
+    user: {
+      backgroundImage: `url(${userBG})`,
+      textAlign: "center",
+
+      padding: 50,
+    },
+    li: { marginTop: 35, marginBottom: 35 },
+    link: { color: "black", padding: 10, backgroundColor: "#c0bebf" },
+    i: { paddingRight: 10, margin: 0 },
+    menu: {
+      position: "relative",
+      top: "=50px",
+    },
+    signout: {
+      marginTop: 30,
+    },
+  };
+  const [userState, setUserState] = useContext(UserContext);
   useEffect(() => {
     M.AutoInit();
   });
 
-  const style = {
-    sidenav: {
-      width: "270px",
-      backgroundColor: "#484d5c",
-      color: "3ffce00",
-    },
-    li: { marginTop: 35, marginBottom: 35 },
-    link: { color: "#ffce00", padding: 10 },
-    i: { paddingRight: 10 },
-  };
+  function logout() {
+    API.logout().then((res) => {
+      setUserState({ ...userState, authenticated: false });
+    });
+  }
 
   return (
-    <div id="slide-out" className="sidenav sidenav-fixed" style={style.sidenav}>
-      <div className="user-view">
+    <div
+      id="slide-out"
+      className=" sidenav sidenav-fixed"
+      style={style.sidenav}
+    >
+      <div style={style.user}>
         <img
-          className="circle"
+          className="circle "
           src={userState.picture || picture}
+          onError={(e) => {
+            e.target.onerror = null;
+            e.target.src = picture;
+          }}
           alt="profile"
+          style={style.image}
         />
-        <p>{userState.name}</p>
-        <p>{userState.email}</p>
+        <i className="white-text center">{userState.name}</i>
+        <br />
+        <a
+          className="waves-effect waves-light btn red"
+          onClick={logout}
+          style={style.signout}
+        >
+          Sign out
+        </a>
       </div>
-      <ul>
-        <li></li>
+      <ul style={style.menu}>
         <li style={style.li}>
           <h5>
             <Link

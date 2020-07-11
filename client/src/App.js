@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "materialize-css/dist/css/materialize.min.css";
 import "./App.css";
@@ -14,7 +14,7 @@ export default function App() {
       <Router>
         <Switch>
           <Route exact path="/">
-            {/* <Student /> */}
+            {/* <Teacher /> */}
             <Home />
           </Route>
           <ProtectedRoute exact path="/teacher" component={Teacher} />

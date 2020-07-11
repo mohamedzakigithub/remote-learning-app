@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Sidenav from "./components/Sidenav";
-import Dashboard from "./components/dashboard";
-import Liveclass from "./components/Live";
+import Lessons from "./components/Lessons";
+import Liveclass from "./components/Liveclass";
 import Lesson from "./components/Lesson";
 import M from "materialize-css";
-import { set } from "mongoose";
 
 export default function Student() {
   const [view, setView] = useState("");
@@ -21,7 +20,7 @@ export default function Student() {
       case "Liveclass":
         return <Liveclass />;
       default:
-        return <Dashboard showLesson={showLesson} />;
+        return <Lessons showLesson={showLesson} />;
     }
   }
   function showLesson(id) {
@@ -30,13 +29,6 @@ export default function Student() {
   }
   return (
     <div className="main">
-      <a
-        href="/"
-        data-target="slide-out"
-        className="sidenav-trigger black-text"
-      >
-        <i className="material-icons">menu</i>
-      </a>
       <Sidenav setView={setView} showLesson={showLesson} />
       {renderSwitch(view)}
     </div>

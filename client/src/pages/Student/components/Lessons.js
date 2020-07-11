@@ -3,6 +3,14 @@ import { Link } from "react-router-dom";
 import API from "../../../utils/API";
 
 export default function Student({ showLesson }) {
+  const style = {
+    list: {
+      border: "1px solid black",
+    },
+    bg: {
+      backgroundColor: "#c0bebf",
+    },
+  };
   const [lessons, setLessons] = useState([]);
 
   useEffect(() => {
@@ -18,21 +26,22 @@ export default function Student({ showLesson }) {
   return (
     <div className="row">
       <h3 className="center">Browse lessons</h3>
-      <div className="col s12 m8 offset-m2 ">
-        <ul className="collection with-header">
-          <li className="collection-header">
+      <div className="col s12 m10 offset-m1 ">
+        <ul className="collection with-header" style={style.list}>
+          <li className="collection-header" style={style.bg}>
             <h4>Lessons</h4>
           </li>
           {lessons.length ? (
             lessons.map((lesson) => (
               <Link
-                className="collection-item"
+                className="collection-item black-text"
                 to="/"
                 onClick={(e) => {
                   e.preventDefault();
                   showLesson(lesson._id);
                 }}
                 key={lesson._id}
+                style={style.bg}
               >
                 {lesson.title}
               </Link>

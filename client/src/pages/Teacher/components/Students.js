@@ -9,11 +9,15 @@ import AddStudentForm from "./AddStudentForm";
 // Style
 
 const style = {
+  container: {
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "flex-start",
+  },
   card: {
     height: "auto",
     width: 250,
-    backgroundColor: "white",
-    padding: 10,
+    backgroundColor: "#c0bebf",
     borderRadius: 5,
     border: "1px solid black",
     margin: 10,
@@ -40,6 +44,7 @@ const style = {
     fontSize: 12,
     margin: "10px, 0px",
   },
+  button: { backgroundColor: "#333333" },
 };
 
 export default function Students() {
@@ -83,26 +88,15 @@ export default function Students() {
         <AddStudentForm showList={showList} />
       </div>
 
-      <div className="row" className={`${hideList} `}>
+      <div className={`row ${hideList} `}>
         <h3 className="center">Manage students</h3>
-        <div
-          className="col s12"
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "space-around",
-          }}
-        >
-          <div style={style.card} className="hoverable">
+        <div className="col s12" style={style.container}>
+          <div style={style.card}>
             <div>
               <img src={add} style={style.add} alt="add" />
             </div>
             <div style={style.center}>
-              <button
-                onClick={showForm}
-                className="btn blue"
-                style={style.button}
-              >
+              <button onClick={showForm} className="btn" style={style.button}>
                 Add student
               </button>
             </div>
@@ -110,7 +104,7 @@ export default function Students() {
 
           {students.length
             ? students.map((student) => (
-                <div style={style.card} className="hoverable" key={student._id}>
+                <div style={style.card} key={student._id}>
                   <img
                     src={student.picture || picture}
                     style={style.img}

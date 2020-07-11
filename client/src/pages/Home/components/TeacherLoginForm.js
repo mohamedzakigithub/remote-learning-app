@@ -5,29 +5,30 @@ import { UserContext } from "../../../utils/UserContext";
 
 export default function TeacherLoginForm({ setView }) {
   const style = {
-    input: {
-      borderRadius: 20,
-      border: "0px solid black",
-      color: "black",
-      backgroundColor: "white",
-      height: 30,
-      paddingLeft: 10,
-    },
+    input: { color: "white" },
     button: {
-      borderRadius: 20,
       border: "0px solid black",
       color: "white",
       backgroundColor: "#0667d8",
       height: 30,
       width: "100%",
+      padding: "0 10px ",
     },
     card: {
       borderRadius: 20,
       border: "2px solid white",
       height: "50vh",
     },
+    form: {
+      display: "inline-block",
+      position: "absolute",
+      bottom: 30,
+      right: "10%",
+      padding: 10,
+      width: "80%",
+    },
   };
-  const [userState, setUserState] = useContext(UserContext);
+  const [, setUserState] = useContext(UserContext);
   const [formObject, setFormObject] = useState({});
   let history = useHistory();
 
@@ -38,7 +39,7 @@ export default function TeacherLoginForm({ setView }) {
 
   function handleFormSubmit(event) {
     event.preventDefault();
-    API.teacherLogin({
+    API.login({
       username: formObject.username,
       password: formObject.password,
     })
@@ -63,46 +64,49 @@ export default function TeacherLoginForm({ setView }) {
         >
           Teacher portal
         </h3>
-        <div>
-          <input
-            placeholder="username"
-            id="username"
-            type="text"
-            name="username"
-            className="validate"
-            onChange={handleInputChange}
-            style={style.input}
-          />
-        </div>
-        <div>
-          <input
-            id="password"
-            name="password"
-            type="password"
-            className="validate"
-            onChange={handleInputChange}
-            style={style.input}
-          />
-        </div>
-        <div>
-          <button
-            className="btn waves-effect"
-            type="submit"
-            onClick={handleFormSubmit}
-            style={style.button}
-          >
-            Login
-          </button>
-          <a
-            href="/"
-            className="white-text"
-            onClick={(e) => {
-              e.preventDefault();
-              setView("register");
-            }}
-          >
-            Or register
-          </a>
+        <div style={style.form}>
+          <div className="input-field">
+            <input
+              id="username"
+              type="text"
+              name="username"
+              className="validate"
+              onChange={handleInputChange}
+              style={style.input}
+            />
+            <label htmlFor="username">User name</label>
+          </div>
+          <div className="input-field">
+            <input
+              id="password"
+              name="password"
+              type="password"
+              className="validate"
+              onChange={handleInputChange}
+              style={style.input}
+            />
+            <label htmlFor="password">Password</label>
+          </div>
+          <div>
+            <button
+              className="btn waves-effect"
+              type="submit"
+              onClick={handleFormSubmit}
+              style={style.button}
+            >
+              Login
+            </button>
+            <a
+              href="/"
+              className="white-text"
+              onClick={(e) => {
+                e.preventDefault();
+                setView("register");
+              }}
+            >
+              Or register
+            </a>
+          </div>
         </div>
       </div>
     </div>

@@ -6,6 +6,16 @@ router.post("/register", usersController.register);
 
 router.post("/login", passport.authenticate("local"), usersController.login);
 
+router.get("/isLoggedIn", isLoggedIn, function (req, res) {
+  res.json(req.user);
+});
+
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated()) {
+    res.json(req.user);
+  }
+}
+
 router.get("/logout", usersController.logout);
 
 router.get("/ping", function (req, res) {

@@ -1,16 +1,1 @@
-.dashboard .card .card-image img {
-  display: block;
-  margin: auto;
-}
 
-.dashboard .card {
-  border: 5px solid black;
-}
-
-.dashboard .card .card-image {
-  text-align: center;
-}
-
-.dashboard .card .card-action {
-  text-align: center;
-}

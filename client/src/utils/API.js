@@ -23,8 +23,16 @@ export default {
   },
 
   // Login
-  teacherLogin: function (userData) {
+  login: function (userData) {
     return axios.post("/api/users/login", userData);
+  },
+
+  isLoggedIn: function () {
+    return axios.get("/api/users/isLoggedIn");
+  },
+
+  logout: function () {
+    return axios.get("/api/users/logout");
   },
 
   // Registration
