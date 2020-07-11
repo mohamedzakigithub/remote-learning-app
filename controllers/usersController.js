@@ -1,14 +1,15 @@
 const db = require("../models");
+const passport = require("passport");
 
 // Defining methods for the usersController
 module.exports = {
   register: function (req, res) {
-    console.log(req.body);
     db.User.register(
       new db.User(({ username, name, email, picture, role } = req.body)),
       req.body.password,
       function (err, account) {
         if (err) {
+          console.log(err);
           return res.send(err);
         }
         passport.authenticate("local")(req, res, function () {

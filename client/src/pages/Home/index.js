@@ -13,7 +13,6 @@ export default function Home() {
   let history = useHistory();
   const [view, setView] = useState("login");
 
-  const [userState] = useContext(UserContext);
   useEffect(() => {
     API.isLoggedIn()
       .then((res) => {

@@ -58,9 +58,13 @@ export default function Lesson({ lessonId }) {
           <div id="resources" className="col s12" style={style.box}>
             <ul>
               {lesson.resources ? (
-                lesson.resources.map((resource) => (
-                  <li>
-                    <a href={resource} target="_blank">
+                lesson.resources.map((resource, index) => (
+                  <li key={index}>
+                    <a
+                      href={resource}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       {resource}
                     </a>
                   </li>

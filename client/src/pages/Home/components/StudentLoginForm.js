@@ -63,12 +63,12 @@ export default function StudentLoginForm({ setAuthenticated }) {
   return (
     <div className="card transparent" style={style.card}>
       <div className="card-content">
-        <h3
-          className="center white-text
+        <h1
+          className="center white-text flow-text
         "
         >
           Students portal
-        </h3>
+        </h1>
         <div style={style.form}>
           <div className="input-field">
             <input

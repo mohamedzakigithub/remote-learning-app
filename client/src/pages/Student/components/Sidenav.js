@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import API from "../../../utils/API";
 import picture from "../../../img/user-placeholder.png";
@@ -62,7 +62,8 @@ export default function Sidenav({ setView }) {
         />
         <i className="white-text center">{userState.name}</i>
         <a
-          class="waves-effect waves-light btn red"
+          href="/"
+          className="waves-effect waves-light btn red"
           onClick={logout}
           style={style.signout}
         >

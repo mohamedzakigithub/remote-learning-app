@@ -29,7 +29,7 @@ export default function Teacher() {
   return (
     <div className="main">
       <a
-        href="#"
+        href="/"
         data-target="slide-out"
         className="sidenav-trigger hide-on-large-only"
       >

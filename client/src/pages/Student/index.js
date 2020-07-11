@@ -29,6 +29,13 @@ export default function Student() {
   }
   return (
     <div className="main">
+      <a
+        href="/"
+        data-target="slide-out"
+        className="sidenav-trigger hide-on-large-only"
+      >
+        <i className="material-icons black-text">menu</i>
+      </a>
       <Sidenav setView={setView} showLesson={showLesson} />
       {renderSwitch(view)}
     </div>

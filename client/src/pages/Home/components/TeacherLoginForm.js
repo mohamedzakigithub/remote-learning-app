@@ -59,7 +59,7 @@ export default function TeacherLoginForm({ setView }) {
     <div className="card transparent" style={style.card}>
       <div className="card-content">
         <h3
-          className="center white-text
+          className="center white-text flow-text
         "
         >
           Teacher portal

@@ -62,6 +62,7 @@ export default function Sidenav({ setView }) {
         <i className="white-text center">{userState.name}</i>
         <br />
         <a
+          href="/"
           className="waves-effect waves-light btn red"
           onClick={logout}
           style={style.signout}

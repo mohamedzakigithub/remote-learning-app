@@ -48,6 +48,7 @@ export default function TeacherRegisterForm({ setView }) {
       role: "teacher",
     })
       .then((res) => {
+        console.log(res);
         setUserState({
           authenticated: true,
           name: res.data.name,
@@ -63,7 +64,7 @@ export default function TeacherRegisterForm({ setView }) {
     <div className="card transparent" style={style.card}>
       <div className="card-content">
         <h3
-          className="center white-text
+          className="center white-text flow-text
         "
         >
           Teacher registration
