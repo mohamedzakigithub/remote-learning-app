@@ -7,52 +7,52 @@ const users = [
   {
     name: "Mario Speedwagon",
     email: "",
-    picture: "https://randomuser.me/api/portraits/men/81.jpg",
+    photo: "https://randomuser.me/api/portraits/men/81.jpg",
   },
   {
     name: "Paul Molive",
     email: "",
-    picture: "https://randomuser.me/api/portraits/men/30.jpg",
+    photo: "https://randomuser.me/api/portraits/men/30.jpg",
   },
   {
     name: "Anna Rexia",
     email: "",
-    picture: "https://randomuser.me/api/portraits/women/65.jpg",
+    photo: "https://randomuser.me/api/portraits/women/65.jpg",
   },
   {
     name: "Walter Melon",
     email: "",
-    picture: "https://randomuser.me/api/portraits/men/20.jpg",
+    photo: "https://randomuser.me/api/portraits/men/20.jpg",
   },
   {
     name: "Maya Didas",
     email: "",
-    picture: "https://randomuser.me/api/portraits/women/85.jpg",
+    photo: "https://randomuser.me/api/portraits/women/85.jpg",
   },
   {
     name: "Anna Sthesia",
     email: "",
-    picture: "https://randomuser.me/api/portraits/women/85.jpg",
+    photo: "https://randomuser.me/api/portraits/women/85.jpg",
   },
   {
     name: "Pete Sariya",
     email: "",
-    picture: "https://randomuser.me/api/portraits/men/14.jpg",
+    photo: "https://randomuser.me/api/portraits/men/14.jpg",
   },
   {
     name: "Greta Life",
     email: "",
-    picture: "https://randomuser.me/api/portraits/women/43.jpg",
+    photo: "https://randomuser.me/api/portraits/women/43.jpg",
   },
   {
     name: "Robin Banks",
     email: "",
-    picture: "https://randomuser.me/api/portraits/men/72.jpg",
+    photo: "https://randomuser.me/api/portraits/men/72.jpg",
   },
   {
     name: "Maya Didas",
     email: "",
-    picture: "https://randomuser.me/api/portraits/women/24.jpg",
+    photo: "https://randomuser.me/api/portraits/women/24.jpg",
   },
 ];
 
@@ -63,7 +63,7 @@ export default function () {
       password: "xyz",
       name: users[i].name,
       email: users[i].name.replace(/\s/g, "") + "@email.com",
-      picture: users[i].picture,
+      photo: users[i].photo,
       role: "student",
     });
   }

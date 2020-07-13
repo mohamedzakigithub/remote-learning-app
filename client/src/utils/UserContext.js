@@ -8,7 +8,7 @@ const UserProvider = ({ ...props }) => {
     authenticated: false,
     name: "",
     email: "",
-    picture: "",
+    photo: "",
     role: "",
   });
 

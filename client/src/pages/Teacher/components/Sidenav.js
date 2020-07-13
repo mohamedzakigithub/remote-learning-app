@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import M from "materialize-css";
-import picture from "../../../img/user-placeholder.png";
+import userPhotoPlaceholder from "../../../img/userPhotoPlaceholder.png";
 import userBG from "../../../img/userBG.jpg";
 import { UserContext } from "../../../utils/UserContext";
 import API from "../../../utils/API";
@@ -51,10 +51,10 @@ export default function Sidenav({ setView }) {
       <div style={style.user}>
         <img
           className="circle "
-          src={userState.picture || picture}
+          src={userState.photo || userPhotoPlaceholder}
           onError={(e) => {
             e.target.onerror = null;
-            e.target.src = picture;
+            e.target.src = userPhotoPlaceholder;
           }}
           alt="profile"
           style={style.image}

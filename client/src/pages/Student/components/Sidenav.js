@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import API from "../../../utils/API";
-import picture from "../../../img/user-placeholder.png";
+import userPhotoPlaceholder from "../../../img/userPhotoPlaceholder.png";
 import userBG from "../../../img/userBG.jpg";
 import M from "materialize-css";
 import { UserContext } from "../../../utils/UserContext";
@@ -16,6 +16,10 @@ export default function Sidenav({ setView }) {
     },
     user: {
       backgroundImage: `url(${userBG})`,
+      backgroundPosition: "top",
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "cover",
+      height: 250,
       textAlign: "center",
       padding: 50,
     },
@@ -53,14 +57,14 @@ export default function Sidenav({ setView }) {
         <img
           className="circle "
           style={style.image}
-          src={userState.picture || picture}
+          src={userState.photo || userPhotoPlaceholder}
           onError={(e) => {
             e.target.onerror = null;
-            e.target.src = picture;
+            e.target.src = userPhotoPlaceholder;
           }}
           alt="profile"
         />
-        <i className="white-text center">{userState.name}</i>
+        <i className="black-text center">{userState.name}</i>
         <a
           href="/"
           className="waves-effect waves-light btn red"
@@ -104,6 +108,24 @@ export default function Sidenav({ setView }) {
                 live_tv
               </i>
               Live class
+            </Link>
+          </h5>
+        </li>
+        <li style={style.li}>
+          <h5>
+            <Link
+              className="collection-item"
+              to="/"
+              onClick={(e) => {
+                e.preventDefault();
+                setView("Discussions");
+              }}
+              style={style.link}
+            >
+              <i className="material-icons" style={style.i}>
+                message
+              </i>
+              Discussions
             </Link>
           </h5>
         </li>

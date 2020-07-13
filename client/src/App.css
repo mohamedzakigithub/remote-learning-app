@@ -1,14 +1,16 @@
 body,
-html {
+html,
+#root {
   margin: 0;
   padding: 0;
   height: 100vh;
   font-family: "Merriweather", serif;
+  box-sizing: border-box;
 }
 
 h3 {
   margin: 0;
-  padding: 50px;
+  padding: 20px;
 }
 
 .main {
@@ -29,20 +31,18 @@ h3 {
   top: 10%;
 }
 
-.main::after {
+.main {
   background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
     url("./img/stu_bg.jpg");
-  background-position: bottom;
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  z-index: -1;
+  height: 100vh;
+}
+
+.input-field > label {
+  color: white;
 }
 
 .input-field > label:not(.label-icon).active {

@@ -17,7 +17,7 @@ export default function Liveclass() {
       <h3 className="center">Live class</h3>
       <div className="row">
         <div className="col s12 m10 offset-m1">
-          <div id="meetStudent" style={{ height: "70vh", width: "auto" }}></div>
+          <div id="meetStudent" style={{ height: "80vh", width: "auto" }}></div>
         </div>
       </div>
     </>

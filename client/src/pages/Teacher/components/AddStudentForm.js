@@ -22,7 +22,7 @@ export default function AddStudentForm({ showList }) {
         password: "xyz",
         name: formObject.name,
         email: formObject.email,
-        picture: formObject.picture,
+        photo: formObject.photo,
         role: "student",
       })
         .then((res) => {
@@ -47,8 +47,8 @@ export default function AddStudentForm({ showList }) {
           </div>
 
           <div className="input-field col s12 m8 inline">
-            <input name="picture" type="text" onChange={handleInputChange} />
-            <label htmlFor="picture">Picture</label>
+            <input name="photo" type="text" onChange={handleInputChange} />
+            <label htmlFor="photo">Photo</label>
           </div>
 
           <div className="input-field col s12 right-align">

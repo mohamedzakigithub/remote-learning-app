@@ -3,6 +3,7 @@ import Sidenav from "./components/Sidenav";
 import Lessons from "./components/Lessons";
 import Liveclass from "./components/Liveclass";
 import Lesson from "./components/Lesson";
+import Discussions from "./components/Discussions";
 import M from "materialize-css";
 
 export default function Student() {
@@ -19,6 +20,8 @@ export default function Student() {
         return <Lesson lessonId={lessonId} />;
       case "Liveclass":
         return <Liveclass />;
+      case "Discussions":
+        return <Discussions />;
       default:
         return <Lessons showLesson={showLesson} />;
     }

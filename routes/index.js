@@ -9,12 +9,10 @@ router.use("/api", apiRoutes);
 
 if (process.env.NODE_ENV === "production") {
   router.use(function (req, res) {
-    console.log("hit");
     res.sendFile(path.join(__dirname, "../client/build/index.html"));
   });
 } else {
   router.use(function (req, res) {
-    console.log("hit2");
     res.sendFile(path.join(__dirname, "../client/public/index.html"));
   });
 }

@@ -7,23 +7,19 @@ export default function TeacherLoginForm({ setView }) {
   const style = {
     input: { color: "white" },
     button: {
-      border: "0px solid black",
       color: "white",
       backgroundColor: "#0667d8",
-      height: 30,
       width: "100%",
-      padding: "0 10px ",
     },
     card: {
       borderRadius: 20,
       border: "2px solid white",
-      height: "50vh",
+      width: "100%",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
     },
     form: {
-      display: "inline-block",
-      position: "absolute",
-      bottom: 30,
-      right: "10%",
       padding: 10,
       width: "80%",
     },
@@ -48,7 +44,7 @@ export default function TeacherLoginForm({ setView }) {
           authenticated: true,
           name: res.data.name,
           email: res.data.email,
-          picture: res.data.picture,
+          photo: res.data.photo,
           role: res.data.role,
         });
         history.push("/teacher");
@@ -57,57 +53,55 @@ export default function TeacherLoginForm({ setView }) {
   }
   return (
     <div className="card transparent" style={style.card}>
-      <div className="card-content">
-        <h3
-          className="center white-text flow-text
+      <h3
+        className="center white-text flow-text
         "
-        >
-          Teacher portal
-        </h3>
-        <div style={style.form}>
-          <div className="input-field">
-            <input
-              id="username"
-              type="text"
-              name="username"
-              className="validate"
-              onChange={handleInputChange}
-              style={style.input}
-            />
-            <label htmlFor="username">User name</label>
-          </div>
-          <div className="input-field">
-            <input
-              id="password"
-              name="password"
-              type="password"
-              className="validate"
-              onChange={handleInputChange}
-              style={style.input}
-            />
-            <label htmlFor="password">Password</label>
-          </div>
-          <div>
-            <button
-              className="btn waves-effect"
-              type="submit"
-              onClick={handleFormSubmit}
-              style={style.button}
-            >
-              Login
-            </button>
-            <a
-              href="/"
-              className="white-text"
-              onClick={(e) => {
-                e.preventDefault();
-                setView("register");
-              }}
-            >
-              Or register
-            </a>
-          </div>
+      >
+        Teacher portal
+      </h3>
+      <div style={style.form}>
+        <div className="input-field ">
+          <input
+            id="username"
+            type="text"
+            name="username"
+            className="validate"
+            onChange={handleInputChange}
+            style={style.input}
+          />
+          <label htmlFor="username">User name</label>
         </div>
+        <div className="input-field ">
+          <input
+            id="password"
+            name="password"
+            type="password"
+            className="validate"
+            onChange={handleInputChange}
+            style={style.input}
+          />
+          <label htmlFor="password">Password</label>
+        </div>
+        <div className="input-field ">
+          <button
+            className="btn waves-effect"
+            type="submit"
+            onClick={handleFormSubmit}
+            style={style.button}
+          >
+            Login
+          </button>
+        </div>
+        <a
+          href="/"
+          className="white-text "
+          onClick={(e) => {
+            e.preventDefault();
+            setView("register");
+          }}
+        >
+          Or register
+        </a>
       </div>
     </div>
   );

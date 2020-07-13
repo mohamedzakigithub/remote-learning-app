@@ -16,6 +16,7 @@ export default function App() {
           <Route exact path="/">
             {/* <Teacher /> */}
             <Home />
+            {/* <Student /> */}
           </Route>
           <ProtectedRoute exact path="/teacher" component={Teacher} />
           <ProtectedRoute exact path="/student" component={Student} />

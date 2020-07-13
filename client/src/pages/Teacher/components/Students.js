@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import API from "../../../utils/API";
 import M from "materialize-css";
-import picture from "../../../img/user-placeholder.png";
+import userPhotoPlaceholder from "../../../img/userPhotoPlaceholder.png";
 import add from "../../../img/add.png";
 import AddStudentForm from "./AddStudentForm";
-// import seedUsers from "../../../utils/seedUsers";
+import seedUsers from "../../../utils/seedUsers";
+
+// seedUsers();
 
 // Style
 
@@ -106,7 +108,7 @@ export default function Students() {
             ? students.map((student) => (
                 <div style={style.card} key={student._id}>
                   <img
-                    src={student.picture || picture}
+                    src={student.photo || userPhotoPlaceholder}
                     style={style.img}
                     alt="profile"
                   />

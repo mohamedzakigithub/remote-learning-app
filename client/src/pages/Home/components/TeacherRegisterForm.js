@@ -7,23 +7,19 @@ export default function TeacherRegisterForm({ setView }) {
   const style = {
     input: { color: "white" },
     button: {
-      border: "0px solid black",
       color: "white",
       backgroundColor: "#0667d8",
-      height: 30,
       width: "100%",
-      padding: "0 10px ",
     },
     card: {
       borderRadius: 20,
       border: "2px solid white",
-      height: "80vh",
+      width: "100%",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
     },
     form: {
-      display: "inline-block",
-      position: "absolute",
-      bottom: 30,
-      right: "10%",
       padding: 10,
       width: "80%",
     },
@@ -44,7 +40,7 @@ export default function TeacherRegisterForm({ setView }) {
       password: formObject.password,
       name: formObject.name,
       email: formObject.email,
-      picture: formObject.picture,
+      photo: formObject.photo,
       role: "teacher",
     })
       .then((res) => {
@@ -53,7 +49,7 @@ export default function TeacherRegisterForm({ setView }) {
           authenticated: true,
           name: res.data.name,
           email: res.data.email,
-          picture: res.data.picture,
+          photo: res.data.photo,
           role: res.data.role,
         });
         history.push("/teacher");
@@ -62,85 +58,83 @@ export default function TeacherRegisterForm({ setView }) {
   }
   return (
     <div className="card transparent" style={style.card}>
-      <div className="card-content">
-        <h3
-          className="center white-text flow-text
+      <h3
+        className="center white-text flow-text
         "
-        >
-          Teacher registration
-        </h3>
-        <div style={style.form}>
-          <div className="input-field">
-            <input
-              id="username"
-              name="username"
-              type="text"
-              onChange={handleInputChange}
-              style={style.input}
-            />
-            <label htmlFor="username">User name</label>
-          </div>
-          <div className="input-field">
-            <input
-              id="password"
-              name="password"
-              type="password"
-              onChange={handleInputChange}
-              style={style.input}
-            />
-            <label htmlFor="password">Password</label>
-          </div>
-          <div className="input-field">
-            <input
-              id="name"
-              name="name"
-              type="text"
-              onChange={handleInputChange}
-              style={style.input}
-            />
-            <label htmlFor="name">Name</label>
-          </div>
-          <div className="input-field">
-            <input
-              id="email"
-              name="email"
-              type="text"
-              onChange={handleInputChange}
-              style={style.input}
-            />
-            <label htmlFor="email">E-mail</label>
-          </div>
-          <div className="input-field">
-            <input
-              id="picture"
-              name="picture"
-              type="text"
-              onChange={handleInputChange}
-              style={style.input}
-            />
-            <label htmlFor="picture">Picture</label>
-          </div>
-          <div className="input-field">
-            <button
-              className="btn waves-effect"
-              type="submit"
-              onClick={handleFormSubmit}
-              style={style.button}
-            >
-              Register
-            </button>
-            <a
-              href="/"
-              className="white-text"
-              onClick={(e) => {
-                e.preventDefault();
-                setView("login");
-              }}
-            >
-              Or Login
-            </a>
-          </div>
+      >
+        Teacher registration
+      </h3>
+      <div style={style.form}>
+        <div className="input-field">
+          <input
+            id="username"
+            name="username"
+            type="text"
+            onChange={handleInputChange}
+            style={style.input}
+          />
+          <label htmlFor="username">User name</label>
         </div>
+        <div className="input-field">
+          <input
+            id="password"
+            name="password"
+            type="password"
+            onChange={handleInputChange}
+            style={style.input}
+          />
+          <label htmlFor="password">Password</label>
+        </div>
+        <div className="input-field">
+          <input
+            id="name"
+            name="name"
+            type="text"
+            onChange={handleInputChange}
+            style={style.input}
+          />
+          <label htmlFor="name">Name</label>
+        </div>
+        <div className="input-field">
+          <input
+            id="email"
+            name="email"
+            type="text"
+            onChange={handleInputChange}
+            style={style.input}
+          />
+          <label htmlFor="email">E-mail</label>
+        </div>
+        <div className="input-field">
+          <input
+            id="photo"
+            name="photo"
+            type="text"
+            onChange={handleInputChange}
+            style={style.input}
+          />
+          <label htmlFor="photo">Photo</label>
+        </div>
+        <div className="input-field">
+          <button
+            className="btn waves-effect"
+            type="submit"
+            onClick={handleFormSubmit}
+            style={style.button}
+          >
+            Register
+          </button>
+        </div>
+        <a
+          href="/"
+          className="white-text"
+          onClick={(e) => {
+            e.preventDefault();
+            setView("login");
+          }}
+        >
+          Or login
+        </a>
       </div>
     </div>
   );

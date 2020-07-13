@@ -4,7 +4,10 @@ const session = require("express-session");
 const routes = require("./routes");
 const passport = require("./config/passport");
 const app = express();
+const server = require("http").createServer(app);
+const io = require("socket.io")(server);
 const PORT = process.env.PORT || 3001;
+require("./utils/discussions")(io);
 
 // Define middleware here
 
@@ -27,6 +30,6 @@ app.use(routes);
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/rlms");
 
 // Start the API server
-app.listen(PORT, function () {
+server.listen(PORT, function () {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });

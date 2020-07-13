@@ -20,7 +20,7 @@ export default function Home() {
           authenticated: true,
           name: res.data.name,
           email: res.data.email,
-          picture: res.data.picture,
+          photo: res.data.photo,
           role: res.data.role,
         });
         if (res.data.role === "teacher") {
@@ -36,24 +36,26 @@ export default function Home() {
     <div className="home">
       <Navbar />
       <div className="vertical"></div>
-      <div
-        className="row"
-        style={{
-          display: "flex",
-          height: "80vh",
-          alignItems: "center",
-          flexWrap: "wrap",
-        }}
-      >
-        <div className="col s12 m6">
-          <StudentLoginForm />
-        </div>
-        <div className="col s12 m6">
-          {view === "login" ? (
-            <TeacherLoginForm setView={setView} />
-          ) : (
-            <TeacherRegisterForm setView={setView} />
-          )}
+      <div className="container">
+        <div
+          className="row"
+          style={{
+            display: "flex",
+            height: "80vh",
+            alignItems: "center",
+            flexWrap: "wrap",
+          }}
+        >
+          <div className="col s12 m6">
+            <StudentLoginForm />
+          </div>
+          <div className="col s12 m6">
+            {view === "login" ? (
+              <TeacherLoginForm setView={setView} />
+            ) : (
+              <TeacherRegisterForm setView={setView} />
+            )}
+          </div>
         </div>
       </div>
     </div>

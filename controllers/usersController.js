@@ -5,7 +5,7 @@ const passport = require("passport");
 module.exports = {
   register: function (req, res) {
     db.User.register(
-      new db.User(({ username, name, email, picture, role } = req.body)),
+      new db.User(({ username, name, email, photo, role } = req.body)),
       req.body.password,
       function (err, account) {
         if (err) {
