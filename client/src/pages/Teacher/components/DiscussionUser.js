@@ -30,7 +30,9 @@ export default function DiscussionUser({ user }) {
             }}
             alt="user"
           />
-          <span style={style.user}>{user.name.replace(/ .*/, "")}</span>
+          <span style={style.user}>
+            {user.name ? user.name.replace(/ .*/, "") : null}
+          </span>
         </div>
       </div>
     </>
