@@ -16,8 +16,11 @@ export default function Sidenav({ setView }) {
     },
     user: {
       backgroundImage: `url(${userBG})`,
+      backgroundPosition: "top",
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "cover",
+      height: 250,
       textAlign: "center",
-
       padding: 50,
     },
     li: { marginTop: 35, marginBottom: 35 },
@@ -25,13 +28,15 @@ export default function Sidenav({ setView }) {
     i: { paddingRight: 10, margin: 0 },
     menu: {
       position: "relative",
-      top: "=50px",
+      top: "50px",
     },
     signout: {
       marginTop: 30,
     },
   };
+
   const [userState, setUserState] = useContext(UserContext);
+
   useEffect(() => {
     M.AutoInit();
   });
@@ -77,23 +82,6 @@ export default function Sidenav({ setView }) {
               to="/"
               onClick={(e) => {
                 e.preventDefault();
-                setView("Lessons");
-              }}
-              style={style.link}
-            >
-              <i className="material-icons" style={style.i}>
-                import_contacts
-              </i>
-              Manage lessons
-            </Link>
-          </h5>
-        </li>
-        <li style={style.li}>
-          <h5>
-            <Link
-              to="/"
-              onClick={(e) => {
-                e.preventDefault();
                 setView("Students");
               }}
               style={style.link}
@@ -111,6 +99,23 @@ export default function Sidenav({ setView }) {
               to="/"
               onClick={(e) => {
                 e.preventDefault();
+                setView("Lessons");
+              }}
+              style={style.link}
+            >
+              <i className="material-icons" style={style.i}>
+                import_contacts
+              </i>
+              Manage lessons
+            </Link>
+          </h5>
+        </li>
+        <li style={style.li}>
+          <h5>
+            <Link
+              to="/"
+              onClick={(e) => {
+                e.preventDefault();
                 setView("Liveclass");
               }}
               style={style.link}
@@ -119,6 +124,24 @@ export default function Sidenav({ setView }) {
                 live_tv
               </i>
               Live class
+            </Link>
+          </h5>
+        </li>
+        <li style={style.li}>
+          <h5>
+            <Link
+              className="collection-item"
+              to="/"
+              onClick={(e) => {
+                e.preventDefault();
+                setView("Discussions");
+              }}
+              style={style.link}
+            >
+              <i className="material-icons" style={style.i}>
+                message
+              </i>
+              Discussions
             </Link>
           </h5>
         </li>

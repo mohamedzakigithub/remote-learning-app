@@ -5,7 +5,7 @@ export default function NewLessonForm({ showList }) {
   const style = {
     form: {
       backgroundColor: "#c0bebf",
-      padding: 20,
+      padding: 10,
       border: "1px solid black",
     },
   };

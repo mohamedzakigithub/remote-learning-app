@@ -3,7 +3,7 @@ html,
 #root {
   margin: 0;
   padding: 0;
-  height: 100vh;
+  min-height: 100vh;
   font-family: "Merriweather", serif;
   box-sizing: border-box;
 }
@@ -32,30 +32,10 @@ h3 {
 }
 
 .main {
-  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
-    url("./img/stu_bg.jpg");
+  background: url("./img/stu_bg.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-  height: 100vh;
-}
-
-.input-field > label {
-  color: white;
-}
-
-.input-field > label:not(.label-icon).active {
-  color: black;
-}
-
-.input-field input:focus + label,
-.materialize-textarea:focus:not([readonly]) + label {
-  color: white !important;
-}
-/* label underline focus color */
-.input-field input:focus,
-.materialize-textarea:focus:not([readonly]) {
-  border-bottom: 1px solid white !important;
-  box-shadow: 0 1px 0 0 white !important;
+  min-height: 100vh;
 }

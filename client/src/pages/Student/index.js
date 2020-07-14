@@ -35,7 +35,8 @@ export default function Student() {
       <a
         href="/"
         data-target="slide-out"
-        className="sidenav-trigger hide-on-large-only"
+        className="sidenav-trigger  hide-on-large-only"
+        style={{ position: "absolute", top: 5, left: 5 }}
       >
         <i className="material-icons black-text">menu</i>
       </a>

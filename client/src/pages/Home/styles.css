@@ -10,3 +10,22 @@
 .transparent {
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
 }
+
+.transparent .input-field > label {
+  color: white;
+}
+
+.transparent .input-field > label:not(.label-icon).active {
+  color: black;
+}
+
+.transparent .input-field input:focus + label,
+.materialize-textarea:focus:not([readonly]) + label {
+  color: white !important;
+}
+
+.transparent .input-field input:focus,
+.materialize-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid white !important;
+  box-shadow: 0 1px 0 0 white !important;
+}

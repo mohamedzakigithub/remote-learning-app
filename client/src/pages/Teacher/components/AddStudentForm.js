@@ -2,6 +2,14 @@ import React, { useState } from "react";
 import API from "../../../utils/API";
 
 export default function AddStudentForm({ showList }) {
+  const style = {
+    form: {
+      padding: 10,
+      backgroundColor: "#c0bebf",
+      border: "1px solid black",
+    },
+  };
+
   const [formObject, setFormObject] = useState({});
 
   function generateToken() {
@@ -34,19 +42,19 @@ export default function AddStudentForm({ showList }) {
   }
   return (
     <div className="row">
-      <div className="col s12 m8 offset-m2 white">
-        <form className="new-student white">
-          <div className="input-field col s12 m8 inline">
+      <div className="col s10 m8 offset-s1 offset-m2" style={style.form}>
+        <form className="new-student ">
+          <div className="input-field col s12 m8 ">
             <input name="name" type="text" onChange={handleInputChange} />
             <label htmlFor="name">Name</label>
           </div>
 
-          <div className="input-field col s12 m8 inline">
+          <div className="input-field col s12 m8 ">
             <input name="email" type="text" onChange={handleInputChange} />
             <label htmlFor="email">Email</label>
           </div>
 
-          <div className="input-field col s12 m8 inline">
+          <div className="input-field col s12 m8 ">
             <input name="photo" type="text" onChange={handleInputChange} />
             <label htmlFor="photo">Photo</label>
           </div>

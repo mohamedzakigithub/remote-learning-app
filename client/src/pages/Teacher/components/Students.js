@@ -14,7 +14,7 @@ const style = {
   container: {
     display: "flex",
     flexWrap: "wrap",
-    justifyContent: "flex-start",
+    justifyContent: "space-between",
   },
   card: {
     height: "auto",

@@ -6,7 +6,7 @@ export default function EditLessonForm({ lesson, showList }) {
   const style = {
     form: {
       backgroundColor: "#c0bebf",
-      padding: 20,
+      padding: 10,
       border: "1px solid black",
     },
   };
@@ -31,16 +31,16 @@ export default function EditLessonForm({ lesson, showList }) {
           notes: formObject.notes,
           video: formObject.video,
           resources: [
-            formObject.resource1,
-            formObject.resource2,
-            formObject.resource3,
+            formObject.resource1 || lesson.resources[0],
+            formObject.resource2 || lesson.resources[1],
+            formObject.resource3 || lesson.resources[2],
           ],
         },
-        lesson.lesson._id
+        lesson._id
       )
         .then((res) => {
           console.log("saved");
-          window.location.reload();
+          showList();
         })
         .catch((err) => console.log(err));
     }
