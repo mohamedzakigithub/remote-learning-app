@@ -4,7 +4,7 @@ import API from "../../../utils/API";
 export default function NewLessonForm({ showList }) {
   const style = {
     form: {
-      backgroundColor: "#c0bebf",
+      backgroundColor: "white",
       padding: 10,
       border: "1px solid black",
     },
@@ -18,7 +18,7 @@ export default function NewLessonForm({ showList }) {
 
   function handleFormSubmit(event) {
     event.preventDefault();
-    if (formObject.title && formObject.notes) {
+    if (formObject.title) {
       API.saveLesson({
         title: formObject.title,
         notes: formObject.notes,

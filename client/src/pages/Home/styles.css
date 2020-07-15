@@ -7,12 +7,23 @@
   min-height: 100vh;
 }
 
+nav {
+  background: url("../../img/bg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
 .transparent {
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+  background: linear-gradient(
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0.4)
+  );
 }
 
 .transparent .input-field > label {
-  color: white;
+  color: black;
 }
 
 .transparent .input-field > label:not(.label-icon).active {
@@ -20,12 +31,29 @@
 }
 
 .transparent .input-field input:focus + label,
-.materialize-textarea:focus:not([readonly]) + label {
-  color: white !important;
+.materialize-textarea:focus + label {
+  color: black !important;
+  padding-left: 5px;
+}
+
+.transparent input[type="text"]:focus,
+.transparent input[type="password"]:focus {
+  background-color: white;
+}
+
+.transparent input[type="text"],
+.transparent input[type="password"] {
+  background-color: white;
+  padding-left: 5px;
 }
 
 .transparent .input-field input:focus,
-.materialize-textarea:focus:not([readonly]) {
-  border-bottom: 1px solid white !important;
-  box-shadow: 0 1px 0 0 white !important;
+.materialize-textarea:focus {
+  border-bottom: 1px solid black !important;
+  box-shadow: 0 1px 0 0 black !important;
+  padding-left: 5px;
+}
+
+.transparent .input-field label {
+  padding-left: 5px;
 }

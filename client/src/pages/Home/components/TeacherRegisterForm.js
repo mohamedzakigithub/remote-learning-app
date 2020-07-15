@@ -5,19 +5,19 @@ import { UserContext } from "../../../utils/UserContext";
 
 export default function TeacherRegisterForm({ setView }) {
   const style = {
-    input: { color: "white" },
     button: {
       color: "white",
       backgroundColor: "#0667d8",
       width: "100%",
     },
     card: {
-      borderRadius: 20,
-      border: "2px solid white",
       width: "100%",
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
+      borderRadius: 20,
+      border: "2px solid black",
+      background: "none",
     },
     form: {
       padding: 10,
@@ -25,6 +25,7 @@ export default function TeacherRegisterForm({ setView }) {
     },
   };
   const [, setUserState] = useContext(UserContext);
+  const [error, setError] = useState("hide");
   const [formObject, setFormObject] = useState({});
   let history = useHistory();
 
@@ -34,37 +35,55 @@ export default function TeacherRegisterForm({ setView }) {
   }
 
   function handleFormSubmit(event) {
-    event.preventDefault();
-    API.register({
-      username: formObject.username,
-      password: formObject.password,
-      name: formObject.name,
-      email: formObject.email,
-      photo: formObject.photo,
-      role: "teacher",
-    })
-      .then((res) => {
-        console.log(res);
-        setUserState({
-          authenticated: true,
-          name: res.data.name,
-          email: res.data.email,
-          photo: res.data.photo,
-          role: res.data.role,
-        });
-        history.push("/teacher");
+    if (formObject.username && formObject.password && formObject.name) {
+      event.preventDefault();
+      API.register({
+        username: formObject.username,
+        password: formObject.password,
+        name: formObject.name,
+        email: formObject.email,
+        photo: formObject.photo,
+        role: "teacher",
       })
-      .catch((err) => console.log(err));
+        .then((res) => {
+          if (res.data._id) {
+            console.log(res);
+            setUserState({
+              authenticated: true,
+              name: res.data.name,
+              email: res.data.email,
+              photo: res.data.photo,
+              role: res.data.role,
+            });
+            history.push("/teacher");
+          } else {
+            console.log(res);
+            setError("");
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+          setError("");
+        });
+    } else {
+      setError("");
+    }
   }
   return (
     <div className="card transparent" style={style.card}>
       <h3
-        className="center white-text flow-text
+        className="center black-text flow-text
         "
       >
         Teacher registration
       </h3>
       <div style={style.form}>
+        <p
+          style={{ display: "inline", padding: 5 }}
+          className={`red-text black ${error}`}
+        >
+          Registration failed !
+        </p>
         <div className="input-field">
           <input
             id="username"
@@ -127,10 +146,10 @@ export default function TeacherRegisterForm({ setView }) {
         </div>
         <a
           href="/"
-          className="white-text"
+          className="black-text"
           onClick={(e) => {
             e.preventDefault();
-            setView("login");
+            setView("TeacherLogin");
           }}
         >
           Or login

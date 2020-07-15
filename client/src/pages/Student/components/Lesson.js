@@ -26,7 +26,7 @@ export default function Lesson({ lessonId }) {
   return (
     <div>
       <div className="row">
-        <h5 className="center">{lesson.title}</h5>
+        <h3 className="center">{lesson.title}</h3>
         <br />
         <div className="col s12 m10 offset-m1">
           <ul className="tabs">

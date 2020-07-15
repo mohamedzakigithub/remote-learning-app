@@ -5,19 +5,19 @@ import { UserContext } from "../../../utils/UserContext";
 
 export default function TeacherLoginForm({ setView }) {
   const style = {
-    input: { color: "white" },
     button: {
       color: "white",
       backgroundColor: "#0667d8",
       width: "100%",
     },
     card: {
-      borderRadius: 20,
-      border: "2px solid white",
       width: "100%",
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
+      borderRadius: 20,
+      border: "2px solid black",
+      background: "none",
     },
     form: {
       padding: 10,
@@ -26,6 +26,7 @@ export default function TeacherLoginForm({ setView }) {
   };
   const [, setUserState] = useContext(UserContext);
   const [formObject, setFormObject] = useState({});
+  const [error, setError] = useState("hide");
   let history = useHistory();
 
   function handleInputChange(event) {
@@ -49,17 +50,37 @@ export default function TeacherLoginForm({ setView }) {
         });
         history.push("/teacher");
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        setError("");
+      });
   }
   return (
     <div className="card transparent" style={style.card}>
       <h3
-        className="center white-text flow-text
+        className="center black-text flow-text
         "
       >
         Teacher portal
       </h3>
       <div style={style.form}>
+        <a
+          style={{ display: "block" }}
+          href="/"
+          className="black-text "
+          onClick={(e) => {
+            e.preventDefault();
+            setView("StudentsLogin");
+          }}
+        >
+          {"<< Back to students portal"}
+        </a>
+        <p
+          style={{ display: "inline", padding: 5 }}
+          className={`red-text black ${error}`}
+        >
+          Wrong credentials!
+        </p>
         <div className="input-field ">
           <input
             id="username"
@@ -92,15 +113,16 @@ export default function TeacherLoginForm({ setView }) {
             Login
           </button>
         </div>
+
         <a
           href="/"
-          className="white-text "
+          className="black-text "
           onClick={(e) => {
             e.preventDefault();
-            setView("register");
+            setView("TeacherRegister");
           }}
         >
-          Or register
+          or register
         </a>
       </div>
     </div>

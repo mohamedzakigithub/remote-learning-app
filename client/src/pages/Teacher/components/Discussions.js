@@ -29,25 +29,25 @@ export default function Discussions() {
       height: "100%",
       padding: 0,
     },
-    messages: {
-      height: "94%",
+    messagesDiv: {
+      height: "calc(100% - 30px)",
       borderBottom: "1px solid black",
       overflow: "auto",
+    },
+    inputDiv: {
+      height: 30,
+      border: "1px solid black",
+      margin: 0,
+      display: "flex",
+      flexFlow: "row",
+      backgroundColor: "white",
+      alignItems: "center",
     },
     form: {
       width: "100%",
       height: "100%",
       display: "flex",
       flexDirection: "row",
-      alignItems: "center",
-    },
-    input: {
-      height: "6%",
-      border: "1px solid black",
-      margin: 0,
-      display: "flex",
-      flexFlow: "row",
-      backgroundColor: "white",
       alignItems: "center",
     },
     button: {
@@ -132,11 +132,7 @@ export default function Discussions() {
                 ))}
             </div>
             <div className="col s12 m10 chat" style={style.chat}>
-              <div
-                className="chat-messages"
-                style={style.messages}
-                ref={messagesRef}
-              >
+              <div style={style.messagesDiv} ref={messagesRef}>
                 {messages &&
                   messages.map((message, index) => (
                     <Message
@@ -146,7 +142,7 @@ export default function Discussions() {
                     />
                   ))}
               </div>
-              <div style={style.input}>
+              <div style={style.inputDiv}>
                 <form style={style.form} onSubmit={handleFormSubmit}>
                   <input
                     type="text"
@@ -156,7 +152,7 @@ export default function Discussions() {
                     ref={messageRef}
                   />
                   <button
-                    className="btn waves-effect waves-light"
+                    className="btn-small waves-effect waves-light"
                     id="submit"
                     type="submit"
                     name="action"

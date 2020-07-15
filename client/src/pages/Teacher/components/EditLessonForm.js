@@ -5,7 +5,7 @@ import M from "materialize-css";
 export default function EditLessonForm({ lesson, showList }) {
   const style = {
     form: {
-      backgroundColor: "#c0bebf",
+      backgroundColor: "white",
       padding: 10,
       border: "1px solid black",
     },
@@ -24,7 +24,7 @@ export default function EditLessonForm({ lesson, showList }) {
 
   function handleFormSubmit(event) {
     event.preventDefault();
-    if (formObject.title && formObject.notes) {
+    if (formObject.title) {
       API.updateLesson(
         {
           title: formObject.title,

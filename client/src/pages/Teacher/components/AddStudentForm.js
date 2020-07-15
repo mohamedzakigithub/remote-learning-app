@@ -5,7 +5,7 @@ export default function AddStudentForm({ showList }) {
   const style = {
     form: {
       padding: 10,
-      backgroundColor: "#c0bebf",
+      backgroundColor: "white",
       border: "1px solid black",
     },
   };
@@ -24,7 +24,7 @@ export default function AddStudentForm({ showList }) {
   function handleFormSubmit(event) {
     event.preventDefault();
 
-    if (formObject.name && formObject.email) {
+    if (formObject.name) {
       API.register({
         username: generateToken(),
         password: "xyz",
