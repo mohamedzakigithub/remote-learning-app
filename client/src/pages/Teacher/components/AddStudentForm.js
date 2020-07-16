@@ -8,6 +8,9 @@ export default function AddStudentForm({ showList }) {
       backgroundColor: "white",
       border: "1px solid black",
     },
+    btn: {
+      marginLeft: 10,
+    },
   };
 
   const [formObject, setFormObject] = useState({});
@@ -21,9 +24,13 @@ export default function AddStudentForm({ showList }) {
     setFormObject({ ...formObject, [name]: value });
   }
 
+  function handleFormCancel(event) {
+    event.preventDefault();
+    showList();
+  }
+
   function handleFormSubmit(event) {
     event.preventDefault();
-
     if (formObject.name) {
       API.register({
         username: generateToken(),
@@ -60,12 +67,16 @@ export default function AddStudentForm({ showList }) {
           </div>
 
           <div className="input-field col s12 right-align">
+            <a href="/" className=" btn blue" onClick={handleFormSubmit}>
+              Save
+            </a>
             <a
               href="/"
-              className="btn-save btn blue"
-              onClick={handleFormSubmit}
+              className="btn red white-text"
+              onClick={handleFormCancel}
+              style={style.btn}
             >
-              Save
+              cancel
             </a>
           </div>
         </form>

@@ -31,24 +31,21 @@ export default function Student({ showLesson }) {
           <li className="collection-header" style={style.bg}>
             <h4>Lessons</h4>
           </li>
-          {lessons.length ? (
-            lessons.map((lesson) => (
-              <Link
-                className="collection-item black-text"
-                to="/"
-                onClick={(e) => {
-                  e.preventDefault();
-                  showLesson(lesson._id);
-                }}
-                key={lesson._id}
-                style={style.bg}
-              >
-                {lesson.title}
-              </Link>
-            ))
-          ) : (
-            <h4 className="collection-item">No lessons present</h4>
-          )}
+          {lessons.length
+            ? lessons.map((lesson) => (
+                <Link
+                  className="collection-item black-text"
+                  to="/"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    showLesson(lesson._id);
+                  }}
+                  key={lesson._id}
+                >
+                  {lesson.title}
+                </Link>
+              ))
+            : null}
         </ul>
       </div>
     </div>

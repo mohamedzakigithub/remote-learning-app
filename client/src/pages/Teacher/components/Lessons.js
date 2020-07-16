@@ -15,7 +15,7 @@ const style = {
   card: {
     height: "auto",
     width: 250,
-    backgroundColor: "#c0bebf",
+    backgroundColor: "white",
     borderRadius: 5,
     border: "1px solid black",
     margin: 10,
@@ -38,7 +38,7 @@ const style = {
     fontSize: 12,
     margin: "10px, 0px",
   },
-  button: { backgroundColor: "#333333" },
+  button: { backgroundColor: "#0667d8" },
   action: {
     padding: 0,
   },

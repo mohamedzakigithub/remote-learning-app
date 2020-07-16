@@ -4,8 +4,9 @@ import M from "materialize-css";
 import userPhotoPlaceholder from "../../../img/userPhotoPlaceholder.png";
 import add from "../../../img/add.png";
 import AddStudentForm from "./AddStudentForm";
+import seedUsers from "../../../utils/seedUsers";
 
-// Style
+//seedUsers();
 
 const style = {
   container: {
@@ -15,7 +16,7 @@ const style = {
   card: {
     height: "auto",
     width: 250,
-    backgroundColor: "#c0bebf",
+    backgroundColor: "white",
     borderRadius: 5,
     border: "1px solid black",
     margin: 10,
@@ -42,7 +43,7 @@ const style = {
     fontSize: 12,
     margin: "10px, 0px",
   },
-  button: { backgroundColor: "#333333" },
+  button: { backgroundColor: "#0667d8" },
 };
 
 export default function Students() {

@@ -57,63 +57,59 @@ export default function TeacherLoginForm({ setView }) {
   }
   return (
     <div className="card transparent" style={style.card}>
-      <h3
-        className="center black-text flow-text
-        "
+      <a
+        style={{ display: "block", marginTop: 10 }}
+        href="/"
+        className="black-text"
+        onClick={(e) => {
+          e.preventDefault();
+          setView("StudentsLogin");
+        }}
       >
-        Teacher portal
-      </h3>
+        {"<< Back to students portal"}
+      </a>
+      <h3 className="center black-text flow-text">Teacher portal</h3>
       <div style={style.form}>
-        <a
-          style={{ display: "block" }}
-          href="/"
-          className="black-text "
-          onClick={(e) => {
-            e.preventDefault();
-            setView("StudentsLogin");
-          }}
-        >
-          {"<< Back to students portal"}
-        </a>
         <p
           style={{ display: "inline", padding: 5 }}
           className={`red-text black ${error}`}
         >
           Wrong credentials!
         </p>
-        <div className="input-field ">
-          <input
-            id="username"
-            type="text"
-            name="username"
-            className="validate"
-            onChange={handleInputChange}
-            style={style.input}
-          />
-          <label htmlFor="username">User name</label>
-        </div>
-        <div className="input-field ">
-          <input
-            id="password"
-            name="password"
-            type="password"
-            className="validate"
-            onChange={handleInputChange}
-            style={style.input}
-          />
-          <label htmlFor="password">Password</label>
-        </div>
-        <div className="input-field ">
-          <button
-            className="btn waves-effect"
-            type="submit"
-            onClick={handleFormSubmit}
-            style={style.button}
-          >
-            Login
-          </button>
-        </div>
-
+        <form onSubmit={handleFormSubmit}>
+          <div className="input-field ">
+            <input
+              id="username"
+              type="text"
+              name="username"
+              className="validate"
+              onChange={handleInputChange}
+              style={style.input}
+            />
+            <label htmlFor="username">User name</label>
+          </div>
+          <div className="input-field ">
+            <input
+              id="password"
+              name="password"
+              type="password"
+              className="validate"
+              onChange={handleInputChange}
+              style={style.input}
+            />
+            <label htmlFor="password">Password</label>
+          </div>
+          <div className="input-field ">
+            <button
+              className="btn waves-effect"
+              type="submit"
+              onClick={handleFormSubmit}
+              style={style.button}
+            >
+              Login
+            </button>
+          </div>
+        </form>
         <a
           href="/"
           className="black-text "

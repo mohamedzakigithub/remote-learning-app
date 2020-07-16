@@ -72,26 +72,28 @@ export default function StudentLoginForm({ setView }) {
         >
           Wrong credentials!
         </p>
-        <div className="input-field">
-          <input
-            id="token"
-            type="text"
-            name="username"
-            onChange={handleInputChange}
-            style={style.input}
-          />
-          <label htmlFor="token">Token</label>
-        </div>
-        <div className="input-field">
-          <button
-            className="btn waves-effect"
-            type="submit"
-            onClick={handleFormSubmit}
-            style={style.button}
-          >
-            Login
-          </button>
-        </div>
+        <form onSubmit={handleFormSubmit}>
+          <div className="input-field">
+            <input
+              id="token"
+              type="text"
+              name="username"
+              onChange={handleInputChange}
+              style={style.input}
+            />
+            <label htmlFor="token">Token</label>
+          </div>
+          <div className="input-field">
+            <button
+              className="btn waves-effect"
+              type="submit"
+              onClick={handleFormSubmit}
+              style={style.button}
+            >
+              Login
+            </button>
+          </div>
+        </form>
         <a
           href="/"
           className="black-text "

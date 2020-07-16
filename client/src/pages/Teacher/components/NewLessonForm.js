@@ -8,12 +8,20 @@ export default function NewLessonForm({ showList }) {
       padding: 10,
       border: "1px solid black",
     },
+    btn: {
+      marginLeft: 10,
+    },
   };
   const [formObject, setFormObject] = useState({});
 
   function handleInputChange(event) {
     const { name, value } = event.target;
     setFormObject({ ...formObject, [name]: value });
+  }
+
+  function handleFormCancel(event) {
+    event.preventDefault();
+    showList();
   }
 
   function handleFormSubmit(event) {
@@ -91,6 +99,14 @@ export default function NewLessonForm({ showList }) {
                 onClick={handleFormSubmit}
               >
                 Save
+              </a>
+              <a
+                href="/"
+                className="btn red white-text"
+                onClick={handleFormCancel}
+                style={style.btn}
+              >
+                cancel
               </a>
             </div>
           </div>

@@ -32,7 +32,7 @@ const users = [
   {
     name: "Anna Sthesia",
     email: "",
-    photo: "https://randomuser.me/api/portraits/women/85.jpg",
+    photo: "https://randomuser.me/api/portraits/women/86.jpg",
   },
   {
     name: "Pete Sariya",
@@ -50,7 +50,7 @@ const users = [
     photo: "https://randomuser.me/api/portraits/men/72.jpg",
   },
   {
-    name: "Maya Didas",
+    name: "Julia Smith",
     email: "",
     photo: "https://randomuser.me/api/portraits/women/24.jpg",
   },
