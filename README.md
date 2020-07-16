@@ -1,29 +1,46 @@
-# Create React Express App
+# Remote learning app
 
 ## About This Boilerplate
 
-This setup allows for a Node/Express/React app which can be easily deployed to Heroku.
+Remote learning app is a MERN stack web application that aims to assist teachers and students benefit from web technologies in facilitating remote learning. The app features lessons archiving, resources sharing, virtual live class and live discussions.
 
-The front-end React app will auto-reload as it's updated via webpack dev server, and the backend Express app will auto-reload independently with nodemon.
+## Table of contents
 
-## Starting the app locally
+- [Deployed app URL](#Deployed-app-URL)
+- [Demo](#Demo)
+- [Local installation](#Local-installation)
+- [Dependencies and libraries](#Dependencies-and-libraries)
 
-Start by installing front and backend dependencies. While in this directory, run the following command:
+## Deployed app URL
 
-```
-npm install
-```
+https://remote-learning-app.herokuapp.com/
 
-This should install node modules within the server and the client folder.
+## Demo
 
-After both installations complete, run the following command in your terminal:
+<img src="demo.gif" style="width:70%"/>
 
-```
-npm start
-```
+## Local installation
 
-Your app should now be running on <http://localhost:3000>. The Express server should intercept any AJAX requests from the client.
+This will install the dependencies and spin up a local development server.
 
-## Deployment (Heroku)
+     - Clone the repository.
+     - run npm run seed
+     - run npm start
 
-To deploy, simply add and commit your changes, and push to Heroku. As is, the NPM scripts should take care of the rest.
+## Dependencies and libraries
+
+- react
+- react-router-dom
+- socket.io-client
+- react-player
+- materialize-css
+- axios
+- jitsi
+- express
+- express-session
+- mongoose
+- passport
+- passport-local
+- passport-local-mongoose
+- moment
+- socket.io
