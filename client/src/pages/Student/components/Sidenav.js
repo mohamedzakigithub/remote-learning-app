@@ -32,6 +32,7 @@ export default function Sidenav({ setView }) {
     },
     signout: {
       marginTop: 30,
+      display: "block",
     },
   };
 

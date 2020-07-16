@@ -2,7 +2,7 @@ import React from "react";
 
 const style = {
   logo: {
-    padding: "0 20",
+    padding: "0px 20px",
     color: "black",
     fontSize: "1.5rem",
     lineHeight: "40px",

@@ -26,34 +26,28 @@ nav {
   color: black;
 }
 
-.transparent .input-field > label:not(.label-icon).active {
+.transparent .input-field input:focus + label {
   color: black;
-}
-
-.transparent .input-field input:focus + label,
-.materialize-textarea:focus + label {
-  color: black !important;
   padding-left: 5px;
-}
-
-.transparent input[type="text"]:focus,
-.transparent input[type="password"]:focus {
-  background-color: white;
 }
 
 .transparent input[type="text"],
-.transparent input[type="password"] {
+.transparent input[type="password"],
+.transparent input[type="text"]:focus,
+.transparent input[type="password"]:focus {
   background-color: white;
   padding-left: 5px;
 }
 
-.transparent .input-field input:focus,
-.materialize-textarea:focus {
-  border-bottom: 1px solid black !important;
+.transparent .input-field input:focus {
   box-shadow: 0 1px 0 0 black !important;
   padding-left: 5px;
 }
 
 .transparent .input-field label {
   padding-left: 5px;
+}
+
+.transparent .input-field {
+  margin: 10px;
 }

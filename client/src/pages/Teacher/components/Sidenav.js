@@ -32,6 +32,7 @@ export default function Sidenav({ setView }) {
     },
     signout: {
       marginTop: 30,
+      display: "block",
     },
   };
 
@@ -64,7 +65,7 @@ export default function Sidenav({ setView }) {
           alt="profile"
           style={style.image}
         />
-        <i className="white-text center">{userState.name}</i>
+        <i className="black-text center">{userState.name}</i>
         <br />
         <a
           href="/"

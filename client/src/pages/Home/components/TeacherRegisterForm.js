@@ -84,7 +84,7 @@ export default function TeacherRegisterForm({ setView }) {
         >
           Registration failed !
         </p>
-        <div className="input-field">
+        <div className="input-field ">
           <input
             id="username"
             name="username"
@@ -94,7 +94,7 @@ export default function TeacherRegisterForm({ setView }) {
           />
           <label htmlFor="username">User name</label>
         </div>
-        <div className="input-field">
+        <div className="input-field ">
           <input
             id="password"
             name="password"
