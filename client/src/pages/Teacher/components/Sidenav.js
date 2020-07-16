@@ -10,7 +10,7 @@ export default function Sidenav({ setView }) {
   const style = {
     image: { margin: "0 auto", height: 80, display: "block" },
     sidenav: {
-      width: "270px",
+      width: "275px",
       backgroundColor: "#c0bebf",
       color: "black",
     },
@@ -19,19 +19,18 @@ export default function Sidenav({ setView }) {
       backgroundPosition: "top",
       backgroundRepeat: "no-repeat",
       backgroundSize: "cover",
-      height: 250,
+      height: 220,
       textAlign: "center",
       padding: 50,
     },
     li: { marginTop: 35, marginBottom: 35 },
     link: { color: "black", padding: 10, backgroundColor: "#c0bebf" },
-    i: { paddingRight: 10, margin: 0 },
+    i: { paddingRight: 5, margin: 0 },
     menu: {
-      position: "relative",
-      top: "50px",
+      marginTop: 30,
     },
     signout: {
-      marginTop: 30,
+      marginTop: 20,
       display: "block",
     },
   };
@@ -65,7 +64,9 @@ export default function Sidenav({ setView }) {
           alt="profile"
           style={style.image}
         />
-        <i className="black-text center">{userState.name}</i>
+        <i className="black-text center" style={{ fontWeight: 900 }}>
+          {userState.name}
+        </i>
         <br />
         <a
           href="/"
