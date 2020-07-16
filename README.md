@@ -1,7 +1,5 @@
 # Remote learning app
 
-## About This Boilerplate
-
 Remote learning app is a MERN stack web application that aims to assist teachers and students benefit from web technologies in facilitating remote learning. The app features lessons archiving, resources sharing, virtual live class and live discussions.
 
 ## Table of contents
