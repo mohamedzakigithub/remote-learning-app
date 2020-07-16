@@ -4,9 +4,6 @@ import M from "materialize-css";
 import userPhotoPlaceholder from "../../../img/userPhotoPlaceholder.png";
 import add from "../../../img/add.png";
 import AddStudentForm from "./AddStudentForm";
-import seedUsers from "../../../utils/seedUsers";
-
-// seedUsers();
 
 // Style
 
