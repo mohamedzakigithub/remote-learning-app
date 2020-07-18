@@ -1,32 +1,52 @@
 import React from "react";
+import studentsPhoto from "../../../img/studentsPhoto.png";
 
 export default function Hero() {
   const style = {
-    card: {
+    div: {
       width: "100%",
       display: "flex",
-      flexDirection: "row",
+      flexDirection: "column",
+      justifyContent: "center",
+      alignItems: "center",
+      height: "100%",
       padding: 20,
       margin: "auto",
       background: "none",
+      zIndex: 0,
+    },
+    image: {
+      height: "auto",
+      width: "80%",
+
+      zIndex: -1,
     },
     textBig: {
+      display: "block",
+      color: "white",
       fontSize: "4vw",
-      fontWeight: 800,
+      fontWeight: 100,
     },
     textSmall: {
+      color: "white",
       fontSize: "2vw",
-      fontWeight: 400,
+      fontWeight: 100,
+      fontStyle: "italic",
     },
   };
   return (
-    <div className="card " style={style.card}>
+    <div style={style.div}>
       <div>
-        <h1 style={style.textBig} className="flow-text">
-          Learn from home today
-        </h1>
-        <p style={style.textSmall}>Interactive remote learning platform</p>
+        <span style={style.textBig}>Learn from home </span>
+        <span style={style.textSmall}>
+          Interactive remote learning platform
+        </span>
       </div>
+      <img
+        src={studentsPhoto}
+        className="image-responsive"
+        style={style.image}
+      ></img>
     </div>
   );
 }

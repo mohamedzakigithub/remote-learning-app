@@ -15,9 +15,7 @@ export default function TeacherRegisterForm({ setView }) {
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
-      borderRadius: 20,
-      border: "2px solid black",
-      background: "none",
+      background: "white",
     },
     form: {
       padding: 10,
@@ -70,7 +68,7 @@ export default function TeacherRegisterForm({ setView }) {
     }
   }
   return (
-    <div className="card transparent" style={style.card}>
+    <div className="card " style={style.card}>
       <h3
         className="center black-text flow-text
         "

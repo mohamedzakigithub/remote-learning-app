@@ -15,9 +15,7 @@ export default function TeacherLoginForm({ setView }) {
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
-      borderRadius: 20,
-      border: "2px solid black",
-      background: "none",
+      background: "white",
     },
     form: {
       padding: 10,
@@ -56,18 +54,7 @@ export default function TeacherLoginForm({ setView }) {
       });
   }
   return (
-    <div className="card transparent" style={style.card}>
-      <a
-        style={{ display: "block", marginTop: 10 }}
-        href="/"
-        className="black-text"
-        onClick={(e) => {
-          e.preventDefault();
-          setView("StudentsLogin");
-        }}
-      >
-        {"<< Back to students portal"}
-      </a>
+    <div className="card " style={style.card}>
       <h3 className="center black-text flow-text">Teacher portal</h3>
       <div style={style.form}>
         <p

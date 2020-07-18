@@ -12,18 +12,15 @@ import Hero from "./components/Hero";
 export default function Home() {
   const style = {
     container: {
-      borderRadius: 20,
-      height: "85vh",
-      width: "90vw",
-      marginLeft: "5vw",
-      marginTop: 20,
-      overflow: "auto",
+      height: "calc(100% - 60px)",
+      width: "80vw",
+      marginLeft: "10vw",
     },
   };
 
   const [, setUserState] = useContext(UserContext);
   let history = useHistory();
-  const [view, setView] = useState("login");
+  const [view, setView] = useState("StudentLogin");
 
   useEffect(() => {
     API.isLoggedIn()
@@ -47,33 +44,34 @@ export default function Home() {
   function renderSwitch(view) {
     switch (view) {
       case "StudentLogin":
-        return <StudentLoginForm setView={setView} />;
+        return <StudentLoginForm />;
       case "TeacherLogin":
         return <TeacherLoginForm setView={setView} />;
       case "TeacherRegister":
         return <TeacherRegisterForm setView={setView} />;
       default:
-        return <StudentLoginForm setView={setView} />;
+        return <StudentLoginForm />;
     }
   }
 
   return (
     <div className="home">
-      <Navbar />
-      <div style={style.container} className="transparent">
+      <Navbar view={view} setView={setView} />
+      <div style={style.container}>
         <div
           className="row "
           style={{
             display: "flex",
-            height: "80vh",
+            height: "90%",
             alignItems: "center",
             flexWrap: "wrap",
           }}
         >
-          <div className="col s12 m6 l8 hide-on-small-only">
+          <div className="col s12 m8" style={{ height: "100%" }}>
             <Hero />
           </div>
-          <div className="col s12 m6 l4">{renderSwitch(view)}</div>
+
+          <div className="col s12 m4 l4">{renderSwitch(view)}</div>
         </div>
       </div>
     </div>

@@ -15,11 +15,8 @@ export default function StudentLoginForm({ setView }) {
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
-      borderRadius: 20,
-      border: "2px solid black",
-      background: "none",
+      background: "white",
     },
-
     form: {
       padding: 10,
       width: "80%",
@@ -94,16 +91,6 @@ export default function StudentLoginForm({ setView }) {
             </button>
           </div>
         </form>
-        <a
-          href="/"
-          className="black-text "
-          onClick={(e) => {
-            e.preventDefault();
-            setView("TeacherLogin");
-          }}
-        >
-          Teachers portal
-        </a>
       </div>
     </div>
   );
