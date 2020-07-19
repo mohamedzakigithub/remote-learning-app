@@ -16,9 +16,10 @@ export default function StudentLoginForm({ setView }) {
       flexDirection: "column",
       alignItems: "center",
       background: "white",
+      margin: "0px auto",
+      padding: 20,
     },
     form: {
-      padding: 10,
       width: "80%",
     },
   };
@@ -46,6 +47,7 @@ export default function StudentLoginForm({ setView }) {
           email: res.data.email,
           photo: res.data.photo,
           role: res.data.role,
+          teacher: res.data.teacher,
         });
         history.push("/student");
       })
@@ -56,12 +58,13 @@ export default function StudentLoginForm({ setView }) {
   }
   return (
     <div className="card" style={style.card}>
-      <h1
+      <h3
         className="center flow-text
         "
+        style={{ padding: 0 }}
       >
         Students portal
-      </h1>
+      </h3>
       <div style={style.form}>
         <p
           style={{ display: "inline", padding: 5 }}
@@ -80,7 +83,7 @@ export default function StudentLoginForm({ setView }) {
             />
             <label htmlFor="token">Token</label>
           </div>
-          <div className="input-field">
+          <div className="input-field" style={{ margin: "0px auto" }}>
             <button
               className="btn waves-effect"
               type="submit"

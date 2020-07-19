@@ -9,10 +9,11 @@ export default function DiscussionUser({ user }) {
       padding: 5,
       margin: "5px 0px",
     },
-    user: { marginLeft: 5 },
+    user: { marginLeft: 5, fontWeight: 600 },
     photo: {
       verticalAlign: "middle",
-      height: 20,
+      height: 30,
+      marginLeft: 10,
     },
   };
 

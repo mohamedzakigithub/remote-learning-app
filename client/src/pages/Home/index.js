@@ -31,6 +31,7 @@ export default function Home() {
           email: res.data.email,
           photo: res.data.photo,
           role: res.data.role,
+          teacher: res.data.teacher,
         });
         if (res.data.role === "teacher") {
           history.push("/teacher");

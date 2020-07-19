@@ -10,6 +10,7 @@ const UserProvider = ({ ...props }) => {
     email: "",
     photo: "",
     role: "",
+    teacher: "",
   });
 
   return <Provider value={[userState, SetUserState]} {...props} />;

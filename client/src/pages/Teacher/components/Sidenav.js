@@ -11,8 +11,8 @@ export default function Sidenav({ setView }) {
     image: { margin: "0 auto", height: 80, display: "block" },
     sidenav: {
       width: "275px",
-      backgroundColor: "#c0bebf",
-      color: "black",
+      backgroundColor: "#004e89",
+      color: "white",
     },
     user: {
       backgroundImage: `url(${userBG})`,
@@ -24,7 +24,13 @@ export default function Sidenav({ setView }) {
       padding: 50,
     },
     li: { marginTop: 35, marginBottom: 35 },
-    link: { color: "black", padding: 10, backgroundColor: "#c0bebf" },
+    link: {
+      color: "white",
+      paddingLeft: 15,
+      backgroundColor: "#004e89",
+      display: "flex",
+      alignItems: "center",
+    },
     i: { paddingRight: 5, margin: 0 },
     menu: {
       marginTop: 30,

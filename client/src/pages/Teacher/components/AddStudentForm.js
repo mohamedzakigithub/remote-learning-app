@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { UserContext } from "../../../utils/UserContext";
 import API from "../../../utils/API";
 
 export default function AddStudentForm({ showList }) {
@@ -13,7 +14,9 @@ export default function AddStudentForm({ showList }) {
     },
   };
 
-  const [formObject, setFormObject] = useState({});
+  const defaultFormObject = { name: "", email: "", photo: "" };
+  const [formObject, setFormObject] = useState(defaultFormObject);
+  const [userState, setUserState] = useContext(UserContext);
 
   function generateToken() {
     return Math.random().toString(36).substring(3);
@@ -39,9 +42,11 @@ export default function AddStudentForm({ showList }) {
         email: formObject.email,
         photo: formObject.photo,
         role: "student",
+        teacher: userState.name,
       })
         .then((res) => {
           console.log("saved");
+          setFormObject(defaultFormObject);
           showList();
         })
         .catch((err) => console.log(err));
@@ -52,17 +57,32 @@ export default function AddStudentForm({ showList }) {
       <div className="col s10 m8 offset-s1 offset-m2" style={style.form}>
         <form className="new-student ">
           <div className="input-field col s12 m8 ">
-            <input name="name" type="text" onChange={handleInputChange} />
+            <input
+              name="name"
+              type="text"
+              onChange={handleInputChange}
+              value={formObject.name}
+            />
             <label htmlFor="name">Name</label>
           </div>
 
           <div className="input-field col s12 m8 ">
-            <input name="email" type="text" onChange={handleInputChange} />
+            <input
+              name="email"
+              type="text"
+              onChange={handleInputChange}
+              value={formObject.email}
+            />
             <label htmlFor="email">Email</label>
           </div>
 
           <div className="input-field col s12 m8 ">
-            <input name="photo" type="text" onChange={handleInputChange} />
+            <input
+              name="photo"
+              type="text"
+              onChange={handleInputChange}
+              value={formObject.photo}
+            />
             <label htmlFor="photo">Photo</label>
           </div>
 

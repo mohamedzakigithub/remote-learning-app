@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import API from "../../../utils/API";
 import M from "materialize-css";
 import EditLessonFrom from "./EditLessonForm";
 import NewLessonFrom from "./NewLessonForm";
+import { UserContext } from "../../../utils/UserContext";
 
 // Style
 
@@ -20,6 +21,18 @@ const style = {
     border: "1px solid black",
     margin: 10,
     padding: 10,
+  },
+  AddCard: {
+    height: "auto",
+    width: 250,
+    backgroundColor: "white",
+    borderRadius: 5,
+    border: "1px solid black",
+    margin: 10,
+    padding: 10,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
   },
   content: {
     height: 48,
@@ -53,6 +66,8 @@ export default function Lessons() {
     lesson: "",
   });
 
+  const [userState, setUserState] = useContext(UserContext);
+
   useEffect(() => {
     M.AutoInit();
     loadLessons();
@@ -81,7 +96,7 @@ export default function Lessons() {
   }
 
   function loadLessons() {
-    API.getLessons()
+    API.getLessons(userState.name)
       .then((res) => {
         setLessons(res.data);
       })
@@ -97,7 +112,7 @@ export default function Lessons() {
   return (
     <div className="lessons">
       <div className={`${hideNewForm}`}>
-        <h3 className="center">Add a lesson</h3>
+        <h3 className="center">Add a new lesson</h3>
         <NewLessonFrom showList={showList} />
       </div>
       <div className={`${hideEditForm.hide}`}>
@@ -109,7 +124,7 @@ export default function Lessons() {
       <div className={`row ${hideList} `}>
         <h3 className="center">Manage lessons</h3>
         <div className="col s12" style={style.container}>
-          <div style={style.card}>
+          <div style={style.AddCard}>
             <div style={style.center}>
               <button
                 onClick={showNewForm}
@@ -120,7 +135,6 @@ export default function Lessons() {
               </button>
             </div>
           </div>
-
           {lessons.length
             ? lessons.map((lesson) => (
                 <div className="card" style={style.card} key={lesson._id}>

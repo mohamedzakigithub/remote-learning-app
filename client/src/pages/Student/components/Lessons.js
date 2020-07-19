@@ -1,24 +1,30 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import API from "../../../utils/API";
+import { UserContext } from "../../../utils/UserContext";
 
 export default function Student({ showLesson }) {
   const style = {
     list: {
       border: "1px solid black",
+      overflow: "hidden",
+      overflowY: "scroll",
+      height: "80vh",
     },
-    bg: {
-      backgroundColor: "#c0bebf",
+    header: {
+      backgroundColor: "#004e89",
+      color: "white",
     },
   };
   const [lessons, setLessons] = useState([]);
+  const [userState, setUserState] = useContext(UserContext);
 
   useEffect(() => {
     loadLessons();
   }, []);
 
   function loadLessons() {
-    API.getLessons()
+    API.getLessons(userState.teacher)
       .then((res) => setLessons(res.data))
       .catch((err) => console.log(err));
   }
@@ -27,10 +33,7 @@ export default function Student({ showLesson }) {
     <div className="row">
       <h3 className="center">Browse lessons</h3>
       <div className="col s12 m10 offset-m1 ">
-        <ul className="collection with-header" style={style.list}>
-          <li className="collection-header" style={style.bg}>
-            <h4>Lessons</h4>
-          </li>
+        <ul className="collection " style={style.list}>
           {lessons.length
             ? lessons.map((lesson) => (
                 <Link

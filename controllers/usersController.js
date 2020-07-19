@@ -29,7 +29,7 @@ module.exports = {
   },
 
   getStudents: function (req, res) {
-    db.User.find({ role: "student" })
+    db.User.find({ role: "student", teacher: req.params.teacher })
       .then((data) => res.json(data))
       .catch((err) => res.status(422).json(err));
   },

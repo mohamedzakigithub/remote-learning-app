@@ -31,7 +31,7 @@ export default function Navbar({ view, setView }) {
           {view === "StudentLogin" ? (
             <a
               style={style.button}
-              class="btn-small"
+              className="btn-small"
               onClick={(e) => {
                 e.preventDefault();
                 setView("TeacherLogin");
@@ -42,7 +42,7 @@ export default function Navbar({ view, setView }) {
           ) : (
             <a
               style={style.button}
-              class="btn-small"
+              className="btn-small"
               onClick={(e) => {
                 e.preventDefault();
                 setView("StudentLogin");

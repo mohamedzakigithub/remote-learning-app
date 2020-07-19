@@ -1,12 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import API from "../../../utils/API";
+import { UserContext } from "../../../utils/UserContext";
 import M from "materialize-css";
 import userPhotoPlaceholder from "../../../img/userPhotoPlaceholder.png";
 import add from "../../../img/add.png";
 import AddStudentForm from "./AddStudentForm";
-import seedUsers from "../../../utils/seedUsers";
-
-//seedUsers();
 
 const style = {
   container: {
@@ -50,6 +48,7 @@ export default function Students() {
   const [students, setStudents] = useState([]);
   const [hideList, setHideList] = useState("");
   const [hideForm, setHideForm] = useState("hide");
+  const [userState, setUserState] = useContext(UserContext);
 
   useEffect(() => {
     // seedUsers();
@@ -68,7 +67,7 @@ export default function Students() {
   }
 
   function loadStudents() {
-    API.getStudents()
+    API.getStudents(userState.name)
       .then((res) => {
         setStudents(res.data);
       })
@@ -106,6 +105,10 @@ export default function Students() {
                 <div style={style.card} key={student._id}>
                   <img
                     src={student.photo || userPhotoPlaceholder}
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src = userPhotoPlaceholder;
+                    }}
                     style={style.img}
                     alt="profile"
                   />

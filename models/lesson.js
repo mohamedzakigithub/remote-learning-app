@@ -6,6 +6,7 @@ const lessonSchema = new Schema({
   video: String,
   notes: String,
   resources: Array,
+  teacher: String,
 });
 
 const Lesson = mongoose.model("Lesson", lessonSchema);

@@ -22,7 +22,7 @@ router.get("/ping", function (req, res) {
   res.send("pong!", 200);
 });
 
-router.get("/", usersController.getStudents);
+router.get("/:teacher", usersController.getStudents);
 
 router.delete("/:id", usersController.deleteStudent);
 

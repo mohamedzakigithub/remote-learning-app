@@ -16,9 +16,10 @@ export default function TeacherRegisterForm({ setView }) {
       flexDirection: "column",
       alignItems: "center",
       background: "white",
+      margin: "0px auto",
+      padding: 20,
     },
     form: {
-      padding: 10,
       width: "80%",
     },
   };
@@ -70,8 +71,9 @@ export default function TeacherRegisterForm({ setView }) {
   return (
     <div className="card " style={style.card}>
       <h3
-        className="center black-text flow-text
+        className="center flow-text
         "
+        style={{ padding: 0 }}
       >
         Teacher registration
       </h3>
@@ -144,7 +146,6 @@ export default function TeacherRegisterForm({ setView }) {
         </div>
         <a
           href="/"
-          className="black-text"
           onClick={(e) => {
             e.preventDefault();
             setView("TeacherLogin");

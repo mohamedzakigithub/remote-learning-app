@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import API from "../../../utils/API";
 import ReactPlayer from "react-player";
 import M from "materialize-css";
@@ -9,10 +9,13 @@ export default function Lesson({ lessonId }) {
   const style = {
     box: {
       height: "70vh",
-      border: "2px solid black",
-      borderRadius: 5,
+      border: "1px solid black",
       padding: 20,
       backgroundColor: "white",
+    },
+    header: {
+      backgroundColor: "#004e89",
+      color: "white",
     },
   };
 
@@ -30,18 +33,18 @@ export default function Lesson({ lessonId }) {
         <br />
         <div className="col s12 m10 offset-m1">
           <ul className="tabs">
-            <li className="tab col s4">
-              <a href="#notes" className="black-text">
+            <li className="tab col s4" style={style.header}>
+              <a href="#notes" className="white-text">
                 Notes
               </a>
             </li>
-            <li className="tab col s4">
-              <a href="#video" className="black-text">
+            <li className="tab col s4" style={style.header}>
+              <a href="#video" className="white-text">
                 Video
               </a>
             </li>
-            <li className="tab col s4 ">
-              <a href="#resources" className="black-text">
+            <li className="tab col s4 " style={style.header}>
+              <a href="#resources" className="white-text">
                 resources
               </a>
             </li>

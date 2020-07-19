@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { UserContext } from "../../../utils/UserContext";
 import API from "../../../utils/API";
 
 export default function NewLessonForm({ showList }) {
@@ -12,7 +13,17 @@ export default function NewLessonForm({ showList }) {
       marginLeft: 10,
     },
   };
-  const [formObject, setFormObject] = useState({});
+
+  const defaultFormObject = {
+    title: "",
+    notes: "",
+    video: "",
+    resource1: "",
+    resource2: "",
+    resource3: "",
+  };
+  const [userState, setUserState] = useContext(UserContext);
+  const [formObject, setFormObject] = useState(defaultFormObject);
 
   function handleInputChange(event) {
     const { name, value } = event.target;
@@ -36,9 +47,11 @@ export default function NewLessonForm({ showList }) {
           formObject.resource2,
           formObject.resource3,
         ],
+        teacher: userState.name,
       })
         .then((res) => {
           console.log("saved");
+          setFormObject(defaultFormObject);
           showList();
         })
         .catch((err) => console.log(err));
@@ -50,7 +63,12 @@ export default function NewLessonForm({ showList }) {
         <form className="new-lesson" style={style.form}>
           <div className="row">
             <div className="input-field col s12 m8 inline">
-              <input name="title" type="text" onChange={handleInputChange} />
+              <input
+                name="title"
+                type="text"
+                onChange={handleInputChange}
+                value={formObject.title}
+              />
               <label htmlFor="title">Title</label>
             </div>
             <div className="input-field col s12">
@@ -59,13 +77,18 @@ export default function NewLessonForm({ showList }) {
                 rows={4}
                 className="materialize-textarea"
                 style={{ height: "100px" }}
-                defaultValue={""}
                 onChange={handleInputChange}
+                value={formObject.notes}
               />
               <label htmlFor="notes">Notes</label>
             </div>
             <div className="input-field col s12 m8 inline">
-              <input name="video" type="text" onChange={handleInputChange} />
+              <input
+                name="video"
+                type="text"
+                onChange={handleInputChange}
+                value={formObject.video}
+              />
               <label htmlFor="video">Video</label>
             </div>
             <div className="input-field col s12 m8 inline">
@@ -73,6 +96,7 @@ export default function NewLessonForm({ showList }) {
                 name="resource1"
                 type="text"
                 onChange={handleInputChange}
+                value={formObject.resource1}
               />
               <label htmlFor="resource1">Resource 1</label>
             </div>
@@ -81,6 +105,7 @@ export default function NewLessonForm({ showList }) {
                 name="resource2"
                 type="text"
                 onChange={handleInputChange}
+                value={formObject.resource2}
               />
               <label htmlFor="resource2">Resource 2</label>
             </div>
@@ -89,6 +114,7 @@ export default function NewLessonForm({ showList }) {
                 name="resource3"
                 type="text"
                 onChange={handleInputChange}
+                value={formObject.resource3}
               />
               <label htmlFor="resource3">Resource 3</label>
             </div>
