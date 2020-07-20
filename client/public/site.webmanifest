@@ -1,6 +1,6 @@
 {
-  "name": "",
-  "short_name": "",
+  "name": "My class",
+  "short_name": "My class",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
