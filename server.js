@@ -6,8 +6,9 @@ const passport = require("./config/passport");
 const app = express();
 const server = require("http").createServer(app);
 const io = require("socket.io")(server);
-const PORT = process.env.PORT || 3001;
 require("./utils/discussions")(io);
+
+const PORT = process.env.PORT || 3001;
 
 // Define middleware here
 
@@ -19,7 +20,7 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Serve up static assets (usually on heroku)
+// Serve up static assets
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }

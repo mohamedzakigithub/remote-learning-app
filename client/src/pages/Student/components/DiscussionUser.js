@@ -12,8 +12,8 @@ export default function DiscussionUser({ user }) {
     user: { marginLeft: 5, fontWeight: 600 },
     photo: {
       verticalAlign: "middle",
-      height: 30,
-      marginLeft: 10,
+      height: 25,
+      marginLeft: 5,
     },
   };
 
