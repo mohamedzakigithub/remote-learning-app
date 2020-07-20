@@ -131,7 +131,7 @@ export default function Discussions() {
                   <DiscussionUser user={user} key={user.id} />
                 ))}
             </div>
-            <div className="col s12 m10 chat" style={style.chat}>
+            <div className="col s12 m10" style={style.chat}>
               <div style={style.messagesDiv} ref={messagesRef}>
                 {messages &&
                   messages.map((message, index) => (

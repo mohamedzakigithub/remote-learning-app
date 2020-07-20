@@ -68,11 +68,11 @@ export default function Home() {
             flexWrap: "wrap",
           }}
         >
-          <div className="col s12 m8" style={{ height: "100%" }}>
+          <div className="col colHome s12 m8" style={{ height: "100%" }}>
             <Hero />
           </div>
 
-          <div className="col s12 m4 l4">{renderSwitch(view)}</div>
+          <div className="col colHome s12 m4 l4">{renderSwitch(view)}</div>
         </div>
       </div>
     </div>
