@@ -17,6 +17,17 @@ https://remote-learning-app.herokuapp.com/
 
 <img src="demo.gif" style="width:70%"/>
 
+to try the app, use the following demo accounts.
+
+Teacher demo account
+
+     username: demo
+     password: demo
+
+Student Demo account:
+
+     Token: st
+
 ## Local installation
 
 This will install the dependencies and spin up a local development server.
