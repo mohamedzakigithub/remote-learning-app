@@ -13,11 +13,7 @@ Remote learning app is a MERN stack web application that aims to assist teachers
 
 https://remote-learning-app.herokuapp.com/
 
-## Demo
-
-<img src="demo.gif" style="width:70%"/>
-
-to try the app, use the following demo accounts.
+To try the app, use the following demo accounts.
 
 Teacher demo account
 
@@ -27,6 +23,10 @@ Teacher demo account
 Student Demo account:
 
      Token: st
+
+## Demo
+
+<img src="demo.gif" style="width:70%"/>
 
 ## Local installation
 
